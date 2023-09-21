@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends RigidBody2D
 
 @export var life_time: float = -1 # life time in seconds. infinite if < 0
 

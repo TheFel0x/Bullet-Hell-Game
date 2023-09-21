@@ -1,5 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://bakmv41alesc0"]
+[gd_scene load_steps=2 format=3 uid="uid://c0uub2mu88hj8"]
 
-[ext_resource type="PackedScene" uid="uid://cgt8idbcd58qm" path="res://scenes/entity_base.tscn" id="1_rx7vd"]
+[ext_resource type="PackedScene" uid="uid://dn5e4dj2bx1ci" path="res://scenes/entity_base.tscn" id="1_xo37g"]
 
-[node name="Bullet" groups=["bullet"] instance=ExtResource("1_rx7vd")]
+[node name="Bullet New" instance=ExtResource("1_xo37g")]

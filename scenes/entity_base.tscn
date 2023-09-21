@@ -1,15 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgt8idbcd58qm"]
+[gd_scene load_steps=6 format=3 uid="uid://dn5e4dj2bx1ci"]
 
-[ext_resource type="Script" path="res://scripts/entity_base.gd" id="1_uxn7k"]
-[ext_resource type="Texture2D" uid="uid://cyqerplucrc8a" path="res://sprites/bullet/bullet_sheet.png" id="1_vriyg"]
+[ext_resource type="Script" path="res://scripts/entity_base.gd" id="1_0jh4v"]
+[ext_resource type="Texture2D" uid="uid://cyqerplucrc8a" path="res://sprites/bullet/bullet_sheet.png" id="1_kkh0s"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3i35a"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_757os"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oy2uj"]
-atlas = ExtResource("1_vriyg")
+atlas = ExtResource("1_kkh0s")
 region = Rect2(32, 32, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_avx3n"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_kp14q"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -20,16 +20,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Entity Base" type="StaticBody2D" groups=["entity_base"]]
-script = ExtResource("1_uxn7k")
+[node name="Entity Base New" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_0jh4v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_3i35a")
+shape = SubResource("CircleShape2D_757os")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.76837e-07, -4.76837e-07)
 scale = Vector2(1.25, 1.25)
-sprite_frames = SubResource("SpriteFrames_avx3n")
+sprite_frames = SubResource("SpriteFrames_kp14q")
 autoplay = "default"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

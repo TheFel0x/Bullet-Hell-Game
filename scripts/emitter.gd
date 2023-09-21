@@ -32,8 +32,11 @@ func _on_delayed_start_timer_timeout():
 
 # Emit entity. TODO: Take entity type, life time
 func _emit(angle: float, speed: float):
+	# DEBUG
+	return
+	
 	print_debug("Emitting...")
-	var bullet_inst: StaticBody2D = BulletScene.instantiate()
+	var bullet_inst: RigidBody2D = BulletScene.instantiate()
 	var direction = Vector2.RIGHT.rotated(angle)
 	
 	bullet_inst.position = position
