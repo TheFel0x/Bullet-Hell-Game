@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://dn5e4dj2bx1ci" path="res://scenes/entity_base.tscn" id="1_ue32j"]
 [ext_resource type="Script" path="res://scripts/emitter.gd" id="2_uylrq"]
 
-[node name="Emitter New" instance=ExtResource("1_ue32j")]
+[node name="Emitter" instance=ExtResource("1_ue32j")]
 script = ExtResource("2_uylrq")
 emission_delay = 1.0
 start_delay = -1.0
-emission_count = 5
+emission_count = 10
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
 

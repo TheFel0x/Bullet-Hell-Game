@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://djddx178kvovi"]
+[gd_scene load_steps=5 format=3 uid="uid://djddx178kvovi"]
 
 [ext_resource type="PackedScene" uid="uid://qhk15hlewqxc" path="res://scenes/player.tscn" id="1_1iouy"]
-[ext_resource type="PackedScene" uid="uid://c0uub2mu88hj8" path="res://scenes/bullet.tscn" id="2_q1c3e"]
 [ext_resource type="PackedScene" uid="uid://cvddht0nhjnnv" path="res://scenes/emitter.tscn" id="3_ddlie"]
-[ext_resource type="PackedScene" uid="uid://dn5e4dj2bx1ci" path="res://scenes/entity_base.tscn" id="4_a0b11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu12k"]
 size = Vector2(24, 12)
@@ -15,7 +13,7 @@ size = Vector2(24, 12)
 [node name="Player" parent="." instance=ExtResource("1_1iouy")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(588, 607)
+position = Vector2(479, 669)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -25,11 +23,6 @@ shape = SubResource("RectangleShape2D_cu12k")
 scale = Vector2(25.5, 13.5)
 texture = SubResource("PlaceholderTexture2D_0mhjo")
 
-[node name="Entity Base New" parent="." instance=ExtResource("4_a0b11")]
-position = Vector2(864, 614)
-
-[node name="Emitter New" parent="." instance=ExtResource("3_ddlie")]
-position = Vector2(785, 615)
-
-[node name="Bullet New" parent="." instance=ExtResource("2_q1c3e")]
-position = Vector2(704, 619)
+[node name="Emitter" parent="." instance=ExtResource("3_ddlie")]
+position = Vector2(665, 546)
+emission_count = 10
