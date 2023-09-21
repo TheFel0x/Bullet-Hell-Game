@@ -1,32 +1,81 @@
 [gd_scene load_steps=5 format=3 uid="uid://djddx178kvovi"]
 
-[ext_resource type="PackedScene" uid="uid://qhk15hlewqxc" path="res://scenes/player.tscn" id="1_1iouy"]
-[ext_resource type="PackedScene" uid="uid://cvddht0nhjnnv" path="res://scenes/emitter.tscn" id="3_ddlie"]
+[ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/new_player.tscn" id="2_aui42"]
+[ext_resource type="PackedScene" uid="uid://bhltgyxoslbmu" path="res://scenes/new_emitter.tscn" id="2_sf8li"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu12k"]
-size = Vector2(24, 12)
+size = Vector2(1352, 16)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0mhjo"]
 
 [node name="Game Test Environment" type="Node"]
 
-[node name="Player" parent="." instance=ExtResource("1_1iouy")]
+[node name="Game Borders" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(479, 669)
+[node name="Game Border Bottom" type="StaticBody2D" parent="Game Borders"]
+position = Vector2(8, 1008)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Borders/Game Border Bottom"]
+position = Vector2(652, 0)
 shape = SubResource("RectangleShape2D_cu12k")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-scale = Vector2(25.5, 13.5)
+[node name="Sprite2D" type="Sprite2D" parent="Game Borders/Game Border Bottom"]
+position = Vector2(652, 2.53916e-05)
+scale = Vector2(1352, 16)
 texture = SubResource("PlaceholderTexture2D_0mhjo")
 
-[node name="Emitter" parent="." instance=ExtResource("3_ddlie")]
-position = Vector2(665, 546)
+[node name="Game Border Left" type="StaticBody2D" parent="Game Borders"]
+position = Vector2(-8, -328)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Borders/Game Border Left"]
+position = Vector2(652, 0)
+shape = SubResource("RectangleShape2D_cu12k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game Borders/Game Border Left"]
+position = Vector2(652, 2.53916e-05)
+scale = Vector2(1352, 16)
+texture = SubResource("PlaceholderTexture2D_0mhjo")
+
+[node name="Game Border Top" type="StaticBody2D" parent="Game Borders"]
+position = Vector2(24, -8)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Borders/Game Border Top"]
+position = Vector2(652, 0)
+shape = SubResource("RectangleShape2D_cu12k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game Borders/Game Border Top"]
+position = Vector2(652, 2.53916e-05)
+scale = Vector2(1352, 16)
+texture = SubResource("PlaceholderTexture2D_0mhjo")
+
+[node name="Game Border Right" type="StaticBody2D" parent="Game Borders"]
+position = Vector2(1342, 24)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Borders/Game Border Right"]
+position = Vector2(652, 0)
+shape = SubResource("RectangleShape2D_cu12k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game Borders/Game Border Right"]
+position = Vector2(652, 2.53916e-05)
+scale = Vector2(1352, 16)
+texture = SubResource("PlaceholderTexture2D_0mhjo")
+
+[node name="New Player" parent="." instance=ExtResource("2_aui42")]
+position = Vector2(680, 776)
+
+[node name="New Emitter" parent="." instance=ExtResource("2_sf8li")]
+position = Vector2(688, 464)
 emission_delay = 0.3
+start_delay = -1.0
 emission_count = 20
-max_emissions = 60
+max_emissions = -1
+time_between_entities = -1.0
 entity_speed = 160.0
 wave_degree_offset = 10.0
+life_time = -1.0

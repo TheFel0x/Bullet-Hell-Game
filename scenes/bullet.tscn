@@ -3,5 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dn5e4dj2bx1ci" path="res://scenes/entity_base.tscn" id="1_rx7vd"]
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="2_233uf"]
 
-[node name="Bullet" instance=ExtResource("1_rx7vd")]
+[node name="Bullet" groups=["bullet"] instance=ExtResource("1_rx7vd")]
 script = ExtResource("2_233uf")
+
+[node name="CollisionShape2D" parent="." index="3" groups=["bullet_collision_shape"]]

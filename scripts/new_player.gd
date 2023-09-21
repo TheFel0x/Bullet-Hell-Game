@@ -1,7 +1,9 @@
-extends CharacterBody2D
+extends Area2D
+
 
 const SPEED = 400.0
 const PRECISION_SPEED = 200.0
+var velocity: Vector2 = Vector2(0, 0)
 
 func get_input():
 	var precision_mode: bool = Input.is_action_pressed("precision")
@@ -11,7 +13,7 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	move_and_slide()
+	position += velocity * delta
 
 # Detect Hit and Items
 func _on_body_entered(body):
@@ -25,4 +27,3 @@ func _on_body_entered(body):
 		for group in body.get_groups():
 			all_groups += group + " "
 		print_debug("Not sure what it is: ["+all_groups+"]")
-

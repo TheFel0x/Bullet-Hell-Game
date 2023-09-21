@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c34rsjbp8if2o"]
+
+[ext_resource type="Script" path="res://scripts/new_player.gd" id="1_1jokn"]
+[ext_resource type="SpriteFrames" uid="uid://b660up7u6bxk7" path="res://sprites/player/default/default.tres" id="1_vvq2o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_838q0"]
+radius = 3.0
+
+[node name="New Player" type="Area2D"]
+script = ExtResource("1_1jokn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_vvq2o")
+animation = &"DEBUG"
+autoplay = "DEBUG"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_838q0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

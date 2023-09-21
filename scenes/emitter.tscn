@@ -3,15 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://dn5e4dj2bx1ci" path="res://scenes/entity_base.tscn" id="1_ue32j"]
 [ext_resource type="Script" path="res://scripts/emitter.gd" id="2_uylrq"]
 
-[node name="Emitter" instance=ExtResource("1_ue32j")]
+[node name="Emitter" groups=["emitter"] instance=ExtResource("1_ue32j")]
 script = ExtResource("2_uylrq")
 emission_delay = 0.3
 start_delay = -1.0
 emission_count = 20
-max_emissions = 60
+max_emissions = -1
 time_between_entities = -1.0
 entity_speed = 160.0
 wave_degree_offset = 10.0
+
+[node name="CollisionShape2D" parent="." index="3" groups=["emitter_collision_shape"]]
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
 wait_time = 99999.0
