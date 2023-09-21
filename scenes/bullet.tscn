@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjki30xgd7eln"]
 
-[ext_resource type="PackedScene" uid="uid://bp8bqrjb1kvd5" path="res://scenes/base_entity.tscn" id="1_l1imm"]
-[ext_resource type="Script" path="res://scripts/bullet.gd" id="2_15ppy"]
+[ext_resource type="PackedScene" uid="uid://bp8bqrjb1kvd5" path="res://scenes/base_entity.tscn" id="1_ptxh0"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="2_233uf"]
 
-[node name="New Bullet" groups=["bullet"] instance=ExtResource("1_l1imm")]
-script = ExtResource("2_15ppy")
+[node name="Bullet" groups=["bullet"] instance=ExtResource("1_ptxh0")]
+script = ExtResource("2_233uf")

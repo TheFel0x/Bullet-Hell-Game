@@ -1,4 +1,5 @@
 extends "res://scripts/base_entity.gd"
+class_name Emitter
 
 @export var emission_delay: float = 0.3 # delay between waves in seconds.
 @export var start_delay: float = -1.0 # delay before starting in seconds. instant if <= 0
@@ -8,6 +9,7 @@ extends "res://scripts/base_entity.gd"
 @export var entity_speed: float = 160.0 # speed of emitted entity
 @export var wave_degree_offset: float = 10.0 # degree offset after every wave
 @export var mirrored: bool = false
+@export var emitted_life_time: float = 10.0 # life time of emitted in seconds, infinite if <= 0 (not recommended)
 
 var _degree: float = 0.0 # angle in between emitted entities. is calculated from the emission_count variable
 var _emitted_count: int = 0 # counts emitted entities
@@ -47,12 +49,12 @@ func _angle_to_vector(degrees) -> Vector2:
 	var y = sin(radians)
 	return Vector2(x, y).normalized()
 
-
 # Emit entity. TODO: life time, entity type
 func _emit(angle: float):
 	#print_debug("Emitting... SCHEDULED "+str(_scheduled_count)+" EMITTED "+str(_emitted_count))
 	var speed = entity_speed
-	var bullet_inst: AnimatableBody2D = BulletScene.instantiate()
+	var bullet_inst: Bullet = BulletScene.instantiate()
+	bullet_inst.life_time = emitted_life_time
 	
 	var new_offset = (_emitted_count / emission_count)
 	new_offset *= -1 * wave_degree_offset if mirrored else wave_degree_offset
@@ -98,7 +100,7 @@ func _emit_all_timed():
 			return
 		
 		var angle = _degree * (n+1)
-		angle *= -1 if mirrored else 1
+		angle += -1 if mirrored else 1
 		
 		if n == 0:
 			#print_debug("TIMED Emitting entity number " + str(n) + " at " + str(angle) + "°")

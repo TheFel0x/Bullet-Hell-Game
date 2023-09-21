@@ -3,16 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://bp8bqrjb1kvd5" path="res://scenes/base_entity.tscn" id="1_jexi2"]
 [ext_resource type="Script" path="res://scripts/emitter.gd" id="2_ofb6q"]
 
-[node name="New Emitter" instance=ExtResource("1_jexi2")]
+[node name="Emitter" instance=ExtResource("1_jexi2")]
 script = ExtResource("2_ofb6q")
-emission_delay = null
-start_delay = null
-emission_count = null
-max_emissions = null
-time_between_entities = null
-entity_speed = null
-wave_degree_offset = null
-life_time = null
+emission_delay = 0.3
+start_delay = -1.0
+emission_count = 20
+max_emissions = -1
+time_between_entities = -1.0
+entity_speed = 160.0
+wave_degree_offset = 10.0
+mirrored = false
+emitted_life_time = 10.0
+auto_vanish = false
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
 wait_time = 99999.0

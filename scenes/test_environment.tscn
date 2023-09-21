@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://djddx178kvovi"]
+[gd_scene load_steps=6 format=3 uid="uid://djddx178kvovi"]
 
 [ext_resource type="PackedScene" uid="uid://bhltgyxoslbmu" path="res://scenes/emitter.tscn" id="2_7tseg"]
 [ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="2_aui42"]
@@ -7,6 +7,9 @@
 size = Vector2(1352, 16)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0mhjo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1hbyv"]
+radius = 46.0
 
 [node name="Game Test Environment" type="Node"]
 
@@ -66,29 +69,39 @@ position = Vector2(652, 2.53916e-05)
 scale = Vector2(1352, 16)
 texture = SubResource("PlaceholderTexture2D_0mhjo")
 
+[node name="Collision # 2 Bottom" type="StaticBody2D" parent="Game Borders"]
+position = Vector2(8, 1008)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Borders/Collision # 2 Bottom"]
+position = Vector2(652, 0)
+shape = SubResource("RectangleShape2D_cu12k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game Borders/Collision # 2 Bottom"]
+position = Vector2(652, 2.53916e-05)
+scale = Vector2(1352, 16)
+texture = SubResource("PlaceholderTexture2D_0mhjo")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(1, -46)
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.02
+constant_force = Vector2(35, 2)
+constant_torque = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_1hbyv")
+
 [node name="Player" parent="." instance=ExtResource("2_aui42")]
-position = Vector2(696, 872)
+position = Vector2(461, 773)
 
 [node name="New Emitter" parent="." instance=ExtResource("2_7tseg")]
-position = Vector2(768, 448)
+position = Vector2(580, 442)
 emission_delay = 1.0
-start_delay = -1.0
-emission_count = 1
-max_emissions = -1
-time_between_entities = -1.0
-entity_speed = 160.0
-wave_degree_offset = 10.0
-mirrored = false
-life_time = -1.0
-
-[node name="New Emitter2" parent="." instance=ExtResource("2_7tseg")]
-position = Vector2(640, 448)
-emission_delay = 1.0
-start_delay = -1.0
-emission_count = 1
-max_emissions = -1
-time_between_entities = -1.0
-entity_speed = 160.0
-wave_degree_offset = 10.0
-mirrored = true
-life_time = -1.0
+start_delay = 0.0
+emission_count = 90
+max_emissions = 2000
+wave_degree_offset = 0.0

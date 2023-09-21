@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bp8bqrjb1kvd5"]
 
-[ext_resource type="Script" path="res://scripts/base_entity.gd" id="1_0yb6h"]
-[ext_resource type="Texture2D" uid="uid://cyqerplucrc8a" path="res://sprites/bullet/bullet_sheet.png" id="1_d47ke"]
+[ext_resource type="Script" path="res://scripts/base_entity.gd" id="1_4rf68"]
+[ext_resource type="Texture2D" uid="uid://cyqerplucrc8a" path="res://sprites/bullet/bullet_sheet.png" id="2_6l5l6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oy2uj"]
-atlas = ExtResource("1_d47ke")
+atlas = ExtResource("2_6l5l6")
 region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cems5"]
@@ -20,8 +20,8 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3c11k"]
 
-[node name="New Base Entity" type="AnimatableBody2D" groups=["base_entity"]]
-script = ExtResource("1_0yb6h")
+[node name="Base Entity" type="AnimatableBody2D" groups=["base_entity"]]
+script = ExtResource("1_4rf68")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.76837e-07, -4.76837e-07)
