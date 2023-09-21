@@ -5,12 +5,13 @@
 
 [node name="Emitter" instance=ExtResource("1_ue32j")]
 script = ExtResource("2_uylrq")
-emission_delay = 4.2
+emission_delay = 0.3
 start_delay = -1.0
 emission_count = 20
-max_emissions = 40
-time_between_entities = 0.2
-entity_speed = 40.0
+max_emissions = 60
+time_between_entities = -1.0
+entity_speed = 160.0
+wave_degree_offset = 10.0
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
 wait_time = 99999.0

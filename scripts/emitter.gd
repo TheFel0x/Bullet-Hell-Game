@@ -1,35 +1,34 @@
 extends "res://scripts/entity_base.gd"
 
-@export var emission_delay: float = 4.2 # delay between waves in seconds.
+@export var emission_delay: float = 0.3 # delay between waves in seconds.
 @export var start_delay: float = -1.0 # delay before starting in seconds. instant if <= 0
 @export var emission_count: int = 20 # number of entity emissions per wave. spread across 360°
-@export var max_emissions: int = 40 # number of emissions after which the emitter destroys. -1 = infinite
-@export var time_between_entities: float = 0.2 # time in-between single emissions within the wave. instant if <= 0
-@export var entity_speed: float = 40.0 # speed of emitted entity
+@export var max_emissions: int = 60 # number of emissions after which the emitter destroys. -1 = infinite
+@export var time_between_entities: float = -1 # time in-between single emissions within the wave. instant if <= 0
+@export var entity_speed: float = 160.0 # speed of emitted entity
+@export var wave_degree_offset = 10.0 # degree offset after every wave
 
 var _degree: float = 0.0 # angle in between emitted entities. is calculated from the emission_count variable
 var _emitted_count: int = 0 # counts emitted entities
 var _scheduled_count: int = 0 # counts time emitted entities
+var _children_freed: int = 0 # counts despawned entities
 
 const BulletScene = preload("res://scenes/bullet.tscn")
 
 func _ready():
 	# Caluclate degrees between emitted entities
 	_degree = 360.0 / emission_count
-	print_debug("Emitter created...")
+	#print_debug("Emitter created...")
 	if start_delay > 0.0:
 		$DelayedStartTimer.start(start_delay)
 	else:
 		start()
 
 func _process(delta):
-	# Destroy when completed
-	#if max_emissions >= 0 and _emitted_count >= max_emissions:
-	#	queue_free()
 	pass
 
 func start():
-	print_debug("Emitter started...")
+	#print_debug("Emitter started...")
 	$EmissionTimer.set_wait_time(emission_delay)
 	$EmissionTimer.timeout.connect(_on_emission_timer_timeout)
 	$EmissionTimer.start()
@@ -38,7 +37,7 @@ func start():
 
 # Delayed Start
 func _on_delayed_start_timer_timeout():
-	print_debug("Emitter delay...")
+	#print_debug("Emitter delay...")
 	start()
 
 func _angle_to_vector(degrees) -> Vector2:
@@ -50,17 +49,18 @@ func _angle_to_vector(degrees) -> Vector2:
 
 # Emit entity. TODO: life time, entity type
 func _emit(angle: float):
-	print_debug("Emitting... SCHEDULED "+str(_scheduled_count)+" EMITTED "+str(_emitted_count))
+	#print_debug("Emitting... SCHEDULED "+str(_scheduled_count)+" EMITTED "+str(_emitted_count))
 	var speed = entity_speed
 	var bullet_inst: RigidBody2D = BulletScene.instantiate()
 	
-	#angle += _emitted_count % emission_count
+	angle += (_emitted_count / emission_count) * wave_degree_offset
 	
 	var direction = _angle_to_vector(angle) * speed
 	
 	bullet_inst.position = Vector2(0,0)
 	
 	bullet_inst.set_direction(direction)
+	bullet_inst.tree_exited.connect(_notify_child_freed)
 	
 	add_child(bullet_inst)
 	_emitted_count += 1
@@ -71,7 +71,7 @@ func _on_emission_timer_timeout():
 	if max_emissions >= 0 and _scheduled_count >= max_emissions or max_emissions >= 0 and _emitted_count >= max_emissions:
 			return
 	
-	print_debug("Emission timer tick...")
+	#print_debug("Emission timer tick...")
 	if time_between_entities <= 0:
 		_emit_all()
 	else:
@@ -82,7 +82,7 @@ func _emit_all():
 
 		var angle = _degree * (n+1)
 		
-		print_debug("Emitting entity number " + str(n) + " at " + str(angle) + "°")
+		#print_debug("Emitting entity number " + str(n) + " at " + str(angle) + "°")
 		
 		_emit(angle)
 
@@ -95,10 +95,10 @@ func _emit_all_timed():
 		var angle = _degree * (n+1)
 		
 		if n == 0:
-			print_debug("TIMED Emitting entity number " + str(n) + " at " + str(angle) + "°")
+			#print_debug("TIMED Emitting entity number " + str(n) + " at " + str(angle) + "°")
 			_emit(angle)
 		else:
-			print_debug("TIMED Emitting timed entity number " + str(n) + " at " + str(angle) + "°")
+			#print_debug("TIMED Emitting timed entity number " + str(n) + " at " + str(angle) + "°")
 			var emit_timer: Timer = Timer.new()
 			emit_timer.set_one_shot(true)
 			emit_timer.set_wait_time(n * time_between_entities)
@@ -108,3 +108,9 @@ func _emit_all_timed():
 		
 		_scheduled_count += 1
 
+func _notify_child_freed():
+	_children_freed += 1
+
+	if max_emissions > 0:
+		if _children_freed >= max_emissions:
+			queue_free()
