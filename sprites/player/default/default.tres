@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://b660up7u6bxk7"]
+
+[ext_resource type="Texture2D" uid="uid://bcaix3g3cg1wm" path="res://sprites/player/default/DEBUG/1.png" id="1_ahuh6"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ahuh6")
+}],
+"loop": true,
+"name": &"DEBUG",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://djddx178kvovi"]
+
+[ext_resource type="PackedScene" uid="uid://qhk15hlewqxc" path="res://scenes/player.tscn" id="1_1iouy"]
+[ext_resource type="PackedScene" uid="uid://bakmv41alesc0" path="res://scenes/bullet.tscn" id="3_6sivr"]
+[ext_resource type="PackedScene" uid="uid://md3b5ff0qyr5" path="res://scenes/emitter.tscn" id="3_flh5b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu12k"]
+size = Vector2(24, 12)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0mhjo"]
+
+[node name="Game Test Environment" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_1iouy")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(588, 607)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_cu12k")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(25.5, 13.5)
+texture = SubResource("PlaceholderTexture2D_0mhjo")
+
+[node name="Emitter Inherited" parent="." instance=ExtResource("3_flh5b")]
+position = Vector2(711, 608)
+emission_count = 5
+
+[node name="Bullet" parent="." instance=ExtResource("3_6sivr")]
+position = Vector2(648, 608)
