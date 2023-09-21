@@ -95,13 +95,30 @@ constant_torque = 3.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_1hbyv")
 
+[node name="New Emitter2" parent="RigidBody2D" instance=ExtResource("2_7tseg")]
+emission_delay = 0.1
+start_delay = 0.0
+max_emissions = 1700
+entity_speed = 120.0
+wave_degree_offset = 7.0
+
 [node name="Player" parent="." instance=ExtResource("2_aui42")]
 position = Vector2(461, 773)
 
-[node name="New Emitter" parent="." instance=ExtResource("2_7tseg")]
-position = Vector2(580, 442)
-emission_delay = 1.0
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(1398, -88)
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.02
+constant_force = Vector2(-12, 0)
+constant_torque = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+shape = SubResource("CircleShape2D_1hbyv")
+
+[node name="New Emitter2" parent="RigidBody2D2" instance=ExtResource("2_7tseg")]
+emission_delay = 0.1
 start_delay = 0.0
-emission_count = 90
-max_emissions = 2000
-wave_degree_offset = 0.0
+max_emissions = 1700
+entity_speed = 120.0
+wave_degree_offset = 7.0

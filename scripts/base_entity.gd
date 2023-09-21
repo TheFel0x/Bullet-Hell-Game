@@ -5,7 +5,6 @@ class_name BaseEntity
 @export var auto_vanish: bool = true # if it should vanish when leaving the screen
 
 func _ready():
-	print_debug("base_entity._ready() called!")
 	if life_time > 0:
 		$LifeTimer.set_wait_time(life_time)
 		$LifeTimer.start()
