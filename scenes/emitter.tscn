@@ -5,17 +5,17 @@
 
 [node name="Emitter" instance=ExtResource("1_ue32j")]
 script = ExtResource("2_uylrq")
-emission_delay = 1.0
+emission_delay = 4.2
 start_delay = -1.0
-emission_count = 10
-max_emissions = -1
-time_between_entities = -1.0
+emission_count = 20
+max_emissions = 40
+time_between_entities = 0.2
 entity_speed = 40.0
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
+wait_time = 99999.0
 
 [node name="DelayedStartTimer" type="Timer" parent="." index="5"]
 one_shot = true
 
-[connection signal="timeout" from="EmissionTimer" to="." method="_on_emission_timer_timeout"]
 [connection signal="timeout" from="DelayedStartTimer" to="." method="_on_delayed_start_timer_timeout"]

@@ -25,4 +25,7 @@ texture = SubResource("PlaceholderTexture2D_0mhjo")
 
 [node name="Emitter" parent="." instance=ExtResource("3_ddlie")]
 position = Vector2(665, 546)
-time_between_entities = -1.0
+emission_delay = 4.2
+emission_count = 20
+max_emissions = 40
+time_between_entities = 0.2
