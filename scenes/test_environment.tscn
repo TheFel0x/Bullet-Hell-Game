@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://djddx178kvovi"]
 
-[ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/new_player.tscn" id="2_aui42"]
-[ext_resource type="PackedScene" uid="uid://bhltgyxoslbmu" path="res://scenes/new_emitter.tscn" id="2_sf8li"]
+[ext_resource type="PackedScene" uid="uid://bhltgyxoslbmu" path="res://scenes/emitter.tscn" id="2_7tseg"]
+[ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="2_aui42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu12k"]
 size = Vector2(1352, 16)
@@ -66,11 +66,11 @@ position = Vector2(652, 2.53916e-05)
 scale = Vector2(1352, 16)
 texture = SubResource("PlaceholderTexture2D_0mhjo")
 
-[node name="New Player" parent="." instance=ExtResource("2_aui42")]
-position = Vector2(680, 776)
+[node name="Player" parent="." instance=ExtResource("2_aui42")]
+position = Vector2(696, 872)
 
-[node name="New Emitter" parent="." instance=ExtResource("2_sf8li")]
-position = Vector2(688, 464)
+[node name="New Emitter" parent="." instance=ExtResource("2_7tseg")]
+position = Vector2(704, 576)
 emission_delay = 0.3
 start_delay = -1.0
 emission_count = 20

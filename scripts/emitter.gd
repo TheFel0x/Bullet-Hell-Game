@@ -1,4 +1,4 @@
-extends "res://scripts/entity_base.gd"
+extends "res://scripts/base_entity.gd"
 
 @export var emission_delay: float = 0.3 # delay between waves in seconds.
 @export var start_delay: float = -1.0 # delay before starting in seconds. instant if <= 0
@@ -51,7 +51,7 @@ func _angle_to_vector(degrees) -> Vector2:
 func _emit(angle: float):
 	#print_debug("Emitting... SCHEDULED "+str(_scheduled_count)+" EMITTED "+str(_emitted_count))
 	var speed = entity_speed
-	var bullet_inst: RigidBody2D = BulletScene.instantiate()
+	var bullet_inst: AnimatableBody2D = BulletScene.instantiate()
 	
 	angle += (_emitted_count / emission_count) * wave_degree_offset
 	

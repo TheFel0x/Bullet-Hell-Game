@@ -1,19 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvddht0nhjnnv"]
+[gd_scene load_steps=3 format=3 uid="uid://bhltgyxoslbmu"]
 
-[ext_resource type="PackedScene" uid="uid://dn5e4dj2bx1ci" path="res://scenes/entity_base.tscn" id="1_ue32j"]
-[ext_resource type="Script" path="res://scripts/emitter.gd" id="2_uylrq"]
+[ext_resource type="PackedScene" uid="uid://bp8bqrjb1kvd5" path="res://scenes/base_entity.tscn" id="1_jexi2"]
+[ext_resource type="Script" path="res://scripts/emitter.gd" id="2_ofb6q"]
 
-[node name="Emitter" groups=["emitter"] instance=ExtResource("1_ue32j")]
-script = ExtResource("2_uylrq")
-emission_delay = 0.3
-start_delay = -1.0
-emission_count = 20
-max_emissions = -1
-time_between_entities = -1.0
-entity_speed = 160.0
-wave_degree_offset = 10.0
-
-[node name="CollisionShape2D" parent="." index="3" groups=["emitter_collision_shape"]]
+[node name="New Emitter" instance=ExtResource("1_jexi2")]
+script = ExtResource("2_ofb6q")
+emission_delay = null
+start_delay = null
+emission_count = null
+max_emissions = null
+time_between_entities = null
+entity_speed = null
+wave_degree_offset = null
+life_time = null
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
 wait_time = 99999.0

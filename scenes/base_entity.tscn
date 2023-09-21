@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn5e4dj2bx1ci"]
+[gd_scene load_steps=6 format=3 uid="uid://bp8bqrjb1kvd5"]
 
-[ext_resource type="Script" path="res://scripts/entity_base.gd" id="1_uxn7k"]
-[ext_resource type="Texture2D" uid="uid://cyqerplucrc8a" path="res://sprites/bullet/bullet_sheet.png" id="1_vriyg"]
+[ext_resource type="Script" path="res://scripts/base_entity.gd" id="1_0yb6h"]
+[ext_resource type="Texture2D" uid="uid://cyqerplucrc8a" path="res://sprites/bullet/bullet_sheet.png" id="1_d47ke"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oy2uj"]
-atlas = ExtResource("1_vriyg")
+atlas = ExtResource("1_d47ke")
 region = Rect2(32, 32, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_kp14q"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_cems5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -18,18 +18,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_757os"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3c11k"]
 
-[node name="Entity Base" type="RigidBody2D" groups=["entity_base"]]
-collision_layer = 0
-collision_mask = 0
-gravity_scale = 0.0
-script = ExtResource("1_uxn7k")
+[node name="New Base Entity" type="AnimatableBody2D" groups=["base_entity"]]
+script = ExtResource("1_0yb6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.76837e-07, -4.76837e-07)
 scale = Vector2(1.25, 1.25)
-sprite_frames = SubResource("SpriteFrames_kp14q")
+sprite_frames = SubResource("SpriteFrames_cems5")
 autoplay = "default"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
@@ -38,7 +35,7 @@ autoplay = "default"
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["entity_base_collision_shape"]]
-shape = SubResource("CircleShape2D_757os")
+shape = SubResource("CircleShape2D_3c11k")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

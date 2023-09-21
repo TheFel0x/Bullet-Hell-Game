@@ -1,4 +1,4 @@
-extends "res://scripts/entity_base.gd"
+extends "res://scripts/base_entity.gd"
 
 var _direction: Vector2 = Vector2(0, 0)
 
@@ -11,6 +11,6 @@ func _ready():
 func _process(delta):
 	pass
 
-func _integrate_forces(delta):
-	# go in a straight line
-	linear_velocity = _direction
+func _physics_process(delta):
+	var movement = _direction * delta
+	position += movement
