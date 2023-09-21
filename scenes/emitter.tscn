@@ -8,6 +8,9 @@ script = ExtResource("2_uylrq")
 emission_delay = 1.0
 start_delay = -1.0
 emission_count = 10
+max_emissions = -1
+time_between_entities = -1.0
+entity_speed = 40.0
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
 
