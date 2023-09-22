@@ -30,7 +30,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4hb87"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vh8n1"]
 
 [node name="BaseEntity2D" type="Area2D" groups=["base_entity_2d"]]
 script = ExtResource("1_nhoir")
@@ -48,7 +48,7 @@ autoplay = "default"
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["entity_base_collision_shape"]]
-shape = SubResource("CircleShape2D_4hb87")
+shape = SubResource("CircleShape2D_vh8n1")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

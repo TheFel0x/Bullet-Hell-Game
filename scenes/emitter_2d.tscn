@@ -16,6 +16,7 @@ mirrored = false
 emitted_life_time = 10.0
 max_angle = 360.0
 emission_distance = 0.0
+entity_radius = 5.0
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
 wait_time = 99999.0

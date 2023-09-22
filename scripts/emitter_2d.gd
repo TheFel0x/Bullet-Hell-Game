@@ -12,6 +12,7 @@ class_name Emitter2D
 @export var emitted_life_time: float = 10.0 # life time of emitted in seconds, infinite if <= 0 (not recommended)
 @export var max_angle: float = 360.0 # full angle that the bullets are spread over (180.0 is a half circle)
 @export var emission_distance: float = 0.0 # distance of the spawned entity, away from the source. on source if = 0.0
+@export var entity_radius: float = 5.0 # radius of spawned entity
 
 var _degree: float = 0.0 # angle in between emitted entities. is calculated from the emission_count variable
 var _emitted_count: int = 0 # counts emitted entities
@@ -78,6 +79,7 @@ func _emit(angle: float):
 	bullet_inst.position = global_position + direction.normalized() * emission_distance
 	
 	bullet_inst.set_direction(direction)
+	bullet_inst.set_radius(entity_radius)
 	bullet_inst.tree_exited.connect(_notify_child_freed)
 	
 	# Add child to scene, not to self
@@ -134,6 +136,7 @@ func _emit_all_timed():
 		
 		_scheduled_count += 1
 
+# FIXME this doesn't work anymore since the children aren't part of this tree
 func _notify_child_freed():
 	_children_freed += 1
 

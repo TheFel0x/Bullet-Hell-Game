@@ -29,6 +29,37 @@ shader_parameter/dithering = 2.5
 
 [node name="Game Test Environment" type="Node"]
 
+[node name="Level Node" type="Node" parent="."]
+
+[node name="ColorRect3" type="ColorRect" parent="Level Node"]
+material = SubResource("ShaderMaterial_p6o68")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Level Node/ColorRect3"]
+material = SubResource("ShaderMaterial_yb5xs")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Level Node/ColorRect3/ColorRect2"]
+z_index = -1
+material = SubResource("ShaderMaterial_yjwct")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="Player" parent="." instance=ExtResource("2_aui42")]
 position = Vector2(461, 773)
 
@@ -179,34 +210,4 @@ wave_degree_offset = 0.0
 mirrored = true
 max_angle = 180.0
 emission_distance = 50.0
-
-[node name="Level Node" type="Node" parent="."]
-
-[node name="ColorRect3" type="ColorRect" parent="Level Node"]
-material = SubResource("ShaderMaterial_p6o68")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect2" type="ColorRect" parent="Level Node/ColorRect3"]
-material = SubResource("ShaderMaterial_yb5xs")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Level Node/ColorRect3/ColorRect2"]
-z_index = -1
-material = SubResource("ShaderMaterial_yjwct")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+entity_radius = 7.0
