@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7x5iy6ga7nmu"]
+
+[ext_resource type="Shader" path="res://shader/example_shader_shapes.gdshader" id="1_nhvl2"]
+[ext_resource type="Shader" path="res://shader/example_shader_crt.gdshader" id="2_obcg8"]
+[ext_resource type="Shader" path="res://shader/example_shader_waterclouds.gdshader" id="3_vgu3l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bvtmy"]
+shader = ExtResource("1_nhvl2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gcg8n"]
+shader = ExtResource("2_obcg8")
+shader_parameter/fisheye_strength = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nkrqb"]
+shader = ExtResource("3_vgu3l")
+shader_parameter/transparency = 0.437
+shader_parameter/color0 = Color(0.01, 0, 1, 1)
+shader_parameter/color1 = Color(0.32, 0.2, 1, 1)
+shader_parameter/color2 = Color(0.34, 0.41, 1, 1)
+shader_parameter/color3 = Color(0.39, 0.52, 1, 1)
+shader_parameter/Direction = Vector2(1, 1)
+shader_parameter/Speed = 20.0
+shader_parameter/thresholds = PackedFloat32Array(0.6, 0.66, 0.75)
+shader_parameter/OCTAVE = 6
+shader_parameter/pixel_size = 200
+shader_parameter/dithering = 2.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_txnii"]
+shader = ExtResource("3_vgu3l")
+shader_parameter/transparency = 0.245
+shader_parameter/color0 = Color(0.01, 0, 1, 1)
+shader_parameter/color1 = Color(0.32, 0.2, 1, 1)
+shader_parameter/color2 = Color(0.34, 0.41, 1, 1)
+shader_parameter/color3 = Color(0.39, 0.52, 1, 1)
+shader_parameter/Direction = Vector2(1, 1)
+shader_parameter/Speed = -20.0
+shader_parameter/thresholds = PackedFloat32Array(0.54, 0.45, 0.43)
+shader_parameter/OCTAVE = 6
+shader_parameter/pixel_size = 400
+shader_parameter/dithering = 2.5
+
+[node name="Background Test" type="Node"]
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_bvtmy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect3"]
+material = SubResource("ShaderMaterial_gcg8n")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect3/ColorRect2"]
+z_index = -1
+material = SubResource("ShaderMaterial_nkrqb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect3/ColorRect2/ColorRect"]
+material = SubResource("ShaderMaterial_txnii")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

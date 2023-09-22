@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://nsdyahgdbg58"]
+
+[ext_resource type="PackedScene" uid="uid://dx2wlbq1tg7cm" path="res://scenes/emitter_2d.tscn" id="1_jnru7"]
+[ext_resource type="Script" path="res://scenes/spellcards/attacks/comet.gd" id="1_tybkn"]
+
+[node name="Comet" type="RigidBody2D"]
+gravity_scale = 0.1
+constant_force = Vector2(95, 2)
+script = ExtResource("1_tybkn")
+
+[node name="CometEmitter" parent="." instance=ExtResource("1_jnru7")]
+emission_delay = 0.5
+start_delay = 1.0
+emission_count = 27
+max_emissions = 4000
+time_between_entities = 0.05
+entity_speed = 147.0
+wave_degree_offset = 37.0
+mirrored = true
+emitted_life_time = 60.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

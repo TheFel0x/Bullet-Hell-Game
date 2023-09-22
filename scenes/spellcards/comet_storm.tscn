@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctsnbdqewl3od"]
+
+[ext_resource type="PackedScene" uid="uid://nsdyahgdbg58" path="res://scenes/spellcards/attacks/comet.tscn" id="1_vrdl7"]
+
+[node name="Comet Storm" type="Node"]
+
+[node name="Comet" parent="." instance=ExtResource("1_vrdl7")]
+position = Vector2(-184, 46)
+
+[node name="Comet2" parent="." instance=ExtResource("1_vrdl7")]
+position = Vector2(-368, -322)
+
+[node name="Comet3" parent="." instance=ExtResource("1_vrdl7")]
+position = Vector2(-368, -736)
+
+[node name="Comet4" parent="." instance=ExtResource("1_vrdl7")]
+position = Vector2(-46, -460)
+
+[node name="Comet5" parent="." instance=ExtResource("1_vrdl7")]
+position = Vector2(-414, -552)
+
+[node name="Comet6" parent="." instance=ExtResource("1_vrdl7")]
+position = Vector2(-598, -690)
+
+[node name="Comet7" parent="." instance=ExtResource("1_vrdl7")]
+position = Vector2(-276, -1288)
+script = null
