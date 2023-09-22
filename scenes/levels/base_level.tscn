@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvyb7bvqorlws"]
+
+[ext_resource type="Shader" path="res://shader/example_shader_shapes.gdshader" id="1_phhqy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sojiq"]
+shader = ExtResource("1_phhqy")
+
+[node name="BaseLevel" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_sojiq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

@@ -10,6 +10,8 @@ class_name Emitter2D
 @export var wave_degree_offset: float = 10.0 # degree offset after every wave
 @export var mirrored: bool = false
 @export var emitted_life_time: float = 10.0 # life time of emitted in seconds, infinite if <= 0 (not recommended)
+@export var max_angle: float = 360.0 # full angle that the bullets are spread over (180.0 is a half circle)
+@export var emission_distance: float = 0.0 # distance of the spawned entity, away from the source. on source if = 0.0
 
 var _degree: float = 0.0 # angle in between emitted entities. is calculated from the emission_count variable
 var _emitted_count: int = 0 # counts emitted entities
@@ -20,7 +22,10 @@ const BulletScene = preload("res://scenes/bullet_2d.tscn")
 
 func _ready():
 	# Caluclate degrees between emitted entities
-	_degree = 360.0 / emission_count
+	if max_angle < 360.0:
+		_degree = max_angle / (emission_count-1)
+	else:
+		_degree = max_angle / (emission_count)
 	#print_debug("Emitter created...")
 	if start_delay > 0.0:
 		$DelayedStartTimer.start(start_delay)
@@ -65,11 +70,12 @@ func _emit(angle: float):
 	new_offset *= -1 * wave_degree_offset if mirrored else wave_degree_offset
 	angle +=  new_offset
 	
-	angle += 90
-	var direction = _angle_to_vector(angle) * speed
+	angle -= 90 +180
+	var parent_degree = rotation * 180 / PI
+	var direction = _angle_to_vector(angle + parent_degree) * speed
 	
-	# Global position
-	bullet_inst.position = global_position
+	# Global position with emission distance
+	bullet_inst.position = global_position + direction.normalized() * emission_distance
 	
 	bullet_inst.set_direction(direction)
 	bullet_inst.tree_exited.connect(_notify_child_freed)
@@ -78,8 +84,9 @@ func _emit(angle: float):
 	# Double get_parent() allows the emitter to be attached to a physics body or similar
 	get_parent().get_parent().add_child(bullet_inst)
 	# TESTING rotating the bullet toward where its going
-	bullet_inst.look_at(global_position+direction)
+	bullet_inst.look_at(bullet_inst.position+direction)
 	bullet_inst.rotate(PI/2)
+	
 	_emitted_count += 1
 	
 
@@ -97,7 +104,7 @@ func _on_emission_timer_timeout():
 func _emit_all():
 	for n in range(emission_count):
 
-		var angle = _degree * (n+1)
+		var angle = _degree * (n)
 		angle *= -1 if mirrored else 1
 		
 		#print_debug("Emitting entity number " + str(n) + " at " + str(angle) + "°")
@@ -110,7 +117,7 @@ func _emit_all_timed():
 		if max_emissions >= 0 and _scheduled_count >= max_emissions or max_emissions >= 0 and _emitted_count >= max_emissions:
 			return
 		
-		var angle = _degree * (n+1)
+		var angle = _degree * (n)
 		angle *= -1 if mirrored else 1
 		
 		if n == 0:
