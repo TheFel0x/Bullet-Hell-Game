@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://iumm6yo4wle2" path="res://new_scenes/base_entity_2d.tscn" id="1_wxr7h"]
 [ext_resource type="Script" path="res://new_scenes/emitter_2d.gd" id="2_ks2dd"]
 
-[node name="Emitter2D" instance=ExtResource("1_wxr7h")]
+[node name="Emitter2D" groups=["emitter_2d"] instance=ExtResource("1_wxr7h")]
 script = ExtResource("2_ks2dd")
 emission_delay = 0.3
 start_delay = -1.0

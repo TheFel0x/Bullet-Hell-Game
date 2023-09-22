@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://coo25grvx070x"]
 
-[ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="1_8p5h0"]
+[ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://new_scenes/player.tscn" id="1_8p5h0"]
 [ext_resource type="PackedScene" uid="uid://dx2wlbq1tg7cm" path="res://new_scenes/emitter_2d.tscn" id="2_cd75w"]
 
 [node name="Game Test Environment" type="Node"]

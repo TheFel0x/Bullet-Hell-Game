@@ -16,14 +16,16 @@ func _physics_process(delta):
 	position += velocity * delta
 
 # Detect Hit and Items
-func _on_body_entered(body):
+func _on_area_entered(area):
 	# Debug Prints
-	if body.is_in_group("bullet"):
+	if area.is_in_group("bullet_2d"):
 		print_debug("It's a bullet!")
-	elif body.is_in_group("emitter"):
+	elif area.is_in_group("emitter_2d"):
 		print_debug("It's an emitter!")
+	elif area.is_in_group("base_entity_2d"):
+		print_debug("It's... some kind of entity.")
 	else:
 		var all_groups: String = ""
-		for group in body.get_groups():
+		for group in area.get_groups():
 			all_groups += group + " "
 		print_debug("Not sure what it is: ["+all_groups+"]")

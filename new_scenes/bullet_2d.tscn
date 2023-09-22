@@ -3,5 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://iumm6yo4wle2" path="res://new_scenes/base_entity_2d.tscn" id="1_3b0jn"]
 [ext_resource type="Script" path="res://new_scenes/bullet_2d.gd" id="2_buodo"]
 
-[node name="Bullet2D" instance=ExtResource("1_3b0jn")]
+[node name="Bullet2D" groups=["bullet_2d"] instance=ExtResource("1_3b0jn")]
 script = ExtResource("2_buodo")
