@@ -1,6 +1,13 @@
 extends BaseEntity2D
 class_name Emitter2D
 
+enum BulletSprite {
+	NONE,
+	ROUND,
+	POINTY,
+	STAR
+}
+
 @export var emission_delay: float = 0.3 # delay between waves in seconds.
 @export var start_delay: float = -1.0 # delay before starting in seconds. instant if <= 0
 @export var emission_count: int = 20 # number of entity emissions per wave. spread across 360°
@@ -13,6 +20,8 @@ class_name Emitter2D
 @export var max_angle: float = 360.0 # full angle that the bullets are spread over (180.0 is a half circle)
 @export var emission_distance: float = 0.0 # distance of the spawned entity, away from the source. on source if = 0.0
 @export var entity_radius: float = 5.0 # radius of spawned entity
+@export var emitter_sprite: BulletSprite = BulletSprite.ROUND # own sprite
+@export var entity_sprite: BulletSprite = BulletSprite.POINTY # entity sprite
 
 var _degree: float = 0.0 # angle in between emitted entities. is calculated from the emission_count variable
 var _emitted_count: int = 0 # counts emitted entities
@@ -21,7 +30,23 @@ var _children_freed: int = 0 # counts despawned entities
 
 const BulletScene = preload("res://scenes/bullet_2d.tscn")
 
+func _enum_to_animation(selected: BulletSprite) -> String:
+	if selected == BulletSprite.NONE:
+		return "none"
+	elif selected == BulletSprite.STAR:
+		return "star"
+	elif selected == BulletSprite.ROUND:
+		return "round"
+	elif selected == BulletSprite.POINTY:
+		return "pointy"
+	else:
+		return "error"
+
 func _ready():
+	
+	var animation = _enum_to_animation(emitter_sprite) 
+	$AnimatedSprite2D.animation = animation
+	
 	# Caluclate degrees between emitted entities
 	if max_angle < 360.0:
 		_degree = max_angle / (emission_count-1)
@@ -66,6 +91,7 @@ func _emit(angle: float):
 	var speed = entity_speed
 	var bullet_inst: Bullet2D = BulletScene.instantiate()
 	bullet_inst.life_time = emitted_life_time
+	bullet_inst.set_animation(_enum_to_animation(entity_sprite) )
 	
 	var new_offset = (_emitted_count / emission_count)
 	new_offset *= -1 * wave_degree_offset if mirrored else wave_degree_offset

@@ -9,7 +9,14 @@ func set_direction(direction: Vector2):
 
 func set_radius(radius: float):
 	_radius = radius
-	
+
+func set_animation(animation: String):
+	$AnimatedSprite2D.stop()
+	print_debug("Setting "+animation)
+	$AnimatedSprite2D.animation = animation
+	$AnimatedSprite2D.play(animation)
+	print_debug("now playing "+$AnimatedSprite2D.animation)
+
 func _ready():
 	super()
 	var shape = CircleShape2D.new()
@@ -20,6 +27,7 @@ func _ready():
 	$AnimatedSprite2D.apply_scale(Vector2(calculated_scale,calculated_scale))
 
 func _process(delta):
+	#print_debug("++++now playing "+$AnimatedSprite2D.animation)
 	pass
 
 func _physics_process(delta):

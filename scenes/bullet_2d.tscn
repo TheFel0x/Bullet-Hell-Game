@@ -8,7 +8,7 @@ script = ExtResource("2_yd35x")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(1, 1)
-autoplay = "pointy"
+animation = &"none"
 
 [node name="CollisionShape2D" parent="." index="3"]
 shape = null

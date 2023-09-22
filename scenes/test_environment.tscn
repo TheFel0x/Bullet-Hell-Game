@@ -1,14 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://coo25grvx070x"]
+[gd_scene load_steps=3 format=3 uid="uid://coo25grvx070x"]
 
+[ext_resource type="PackedScene" uid="uid://di5tkxdlpmv6t" path="res://backgrounds/background_night_sky.tscn" id="1_rutlm"]
 [ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="2_aui42"]
-[ext_resource type="PackedScene" uid="uid://b7x5iy6ga7nmu" path="res://backgrounds/background_test.tscn" id="3_uc4ow"]
-[ext_resource type="PackedScene" uid="uid://ctsnbdqewl3od" path="res://scenes/spellcards/comet_storm.tscn" id="5_26sr5"]
 
 [node name="Game Test Environment" type="Node"]
 
-[node name="Background Test" parent="." instance=ExtResource("3_uc4ow")]
+[node name="Night Sky" parent="." instance=ExtResource("1_rutlm")]
 
 [node name="Player" parent="." instance=ExtResource("2_aui42")]
 position = Vector2(690, 736)
-
-[node name="Comet Storm" parent="." instance=ExtResource("5_26sr5")]

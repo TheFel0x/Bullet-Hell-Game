@@ -18,6 +18,8 @@ entity_speed = 147.0
 wave_degree_offset = 37.0
 mirrored = true
 emitted_life_time = 60.0
+emitter_sprite = 3
+entity_sprite = 3
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 

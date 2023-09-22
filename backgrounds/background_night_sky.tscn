@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://di5tkxdlpmv6t"]
+
+[ext_resource type="Shader" path="res://shader/example_shader_night_sky.gdshader" id="1_lwlm8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_imulj"]
+shader = ExtResource("1_lwlm8")
+shader_parameter/dimensions = Vector2(1024, 600)
+shader_parameter/small_stars = 50.0
+shader_parameter/small_stars_far_size = 0.1
+shader_parameter/small_stars_near_size = 0.1
+shader_parameter/large_stars = 8.0
+shader_parameter/large_stars_far_size = 0.1
+shader_parameter/large_stars_near_size = 0.1
+shader_parameter/far_stars_color = Color(0.5, 0, 1, 1)
+shader_parameter/near_stars_color = Color(1, 1, 1, 1)
+shader_parameter/base_scroll_speed = 0.15
+shader_parameter/additional_scroll_speed = 0.05
+
+[node name="Night Sky" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_imulj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="ColorRect"]

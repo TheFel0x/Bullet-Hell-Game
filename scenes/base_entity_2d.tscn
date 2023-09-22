@@ -1,24 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://iumm6yo4wle2"]
+[gd_scene load_steps=8 format=3 uid="uid://iumm6yo4wle2"]
 
 [ext_resource type="Script" path="res://scripts/base_entity_2d.gd" id="1_nhoir"]
 [ext_resource type="Texture2D" uid="uid://cyqerplucrc8a" path="res://sprites/bullet/bullet_sheet.png" id="2_bchel"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oy2uj"]
-atlas = ExtResource("2_bchel")
-region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1ht5"]
 atlas = ExtResource("2_bchel")
 region = Rect2(16, 80, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy2uj"]
+atlas = ExtResource("2_bchel")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjr2h"]
+atlas = ExtResource("2_bchel")
+region = Rect2(128, 160, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_bq80u"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oy2uj")
-}],
+"frames": [],
 "loop": true,
-"name": &"default",
+"name": &"none",
 "speed": 5.0
 }, {
 "frames": [{
@@ -27,6 +28,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"pointy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy2uj")
+}],
+"loop": true,
+"name": &"round",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjr2h")
+}],
+"loop": true,
+"name": &"star",
 "speed": 5.0
 }]
 
@@ -39,8 +56,7 @@ script = ExtResource("1_nhoir")
 position = Vector2(-4.76837e-07, -4.76837e-07)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_bq80u")
-animation = &"pointy"
-autoplay = "default"
+animation = &"round"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
