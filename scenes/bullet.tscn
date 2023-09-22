@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjki30xgd7eln"]
-
-[ext_resource type="PackedScene" uid="uid://bp8bqrjb1kvd5" path="res://scenes/base_entity.tscn" id="1_ptxh0"]
-[ext_resource type="Script" path="res://scripts/bullet.gd" id="2_233uf"]
-
-[node name="Bullet" groups=["bullet"] instance=ExtResource("1_ptxh0")]
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("2_233uf")

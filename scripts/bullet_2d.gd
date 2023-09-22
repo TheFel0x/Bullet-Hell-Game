@@ -1,5 +1,5 @@
-extends "res://scripts/base_entity.gd"
-class_name Bullet
+extends BaseEntity2D
+class_name Bullet2D
 
 var _direction: Vector2 = Vector2(0, 0)
 

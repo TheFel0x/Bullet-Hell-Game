@@ -1,5 +1,5 @@
-extends AnimatableBody2D
-class_name BaseEntity
+extends Area2D
+class_name BaseEntity2D
 
 @export var life_time: float = -1 # life time in seconds. infinite if < 0
 @export var auto_vanish: bool = true # if it should vanish when leaving the screen

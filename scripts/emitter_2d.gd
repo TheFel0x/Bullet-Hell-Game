@@ -1,5 +1,5 @@
-extends "res://scripts/base_entity.gd"
-class_name Emitter
+extends BaseEntity2D
+class_name Emitter2D
 
 @export var emission_delay: float = 0.3 # delay between waves in seconds.
 @export var start_delay: float = -1.0 # delay before starting in seconds. instant if <= 0
@@ -16,7 +16,7 @@ var _emitted_count: int = 0 # counts emitted entities
 var _scheduled_count: int = 0 # counts time emitted entities
 var _children_freed: int = 0 # counts despawned entities
 
-const BulletScene = preload("res://scenes/bullet.tscn")
+const BulletScene = preload("res://scenes/bullet_2d.tscn")
 
 func _ready():
 	# Caluclate degrees between emitted entities
@@ -33,7 +33,6 @@ func _process(delta):
 func start():
 	#print_debug("Emitter started...")
 	$EmissionTimer.set_wait_time(emission_delay)
-	$EmissionTimer.timeout.connect(_on_emission_timer_timeout)
 	$EmissionTimer.start()
 	# don't have a start delay
 	_on_emission_timer_timeout()
@@ -51,9 +50,15 @@ func _angle_to_vector(degrees) -> Vector2:
 
 # Emit entity. TODO: life time, entity type
 func _emit(angle: float):
+	
+	# Don't spawn bullets off screen
+	if not $VisibleOnScreenNotifier2D.is_on_screen():
+		_emitted_count += 1
+		return
+	
 	#print_debug("Emitting... SCHEDULED "+str(_scheduled_count)+" EMITTED "+str(_emitted_count))
 	var speed = entity_speed
-	var bullet_inst: Bullet = BulletScene.instantiate()
+	var bullet_inst: Bullet2D = BulletScene.instantiate()
 	bullet_inst.life_time = emitted_life_time
 	
 	var new_offset = (_emitted_count / emission_count)
@@ -63,12 +68,18 @@ func _emit(angle: float):
 	angle += 90
 	var direction = _angle_to_vector(angle) * speed
 	
-	bullet_inst.position = Vector2(0,0)
+	# Global position
+	bullet_inst.position = global_position
 	
 	bullet_inst.set_direction(direction)
 	bullet_inst.tree_exited.connect(_notify_child_freed)
 	
-	add_child(bullet_inst)
+	# Add child to scene, not to self
+	# Double get_parent() allows the emitter to be attached to a physics body or similar
+	get_parent().get_parent().add_child(bullet_inst)
+	# TESTING rotating the bullet toward where its going
+	bullet_inst.look_at(global_position+direction)
+	bullet_inst.rotate(PI/2)
 	_emitted_count += 1
 	
 
@@ -100,7 +111,7 @@ func _emit_all_timed():
 			return
 		
 		var angle = _degree * (n+1)
-		angle += -1 if mirrored else 1
+		angle *= -1 if mirrored else 1
 		
 		if n == 0:
 			#print_debug("TIMED Emitting entity number " + str(n) + " at " + str(angle) + "°")

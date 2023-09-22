@@ -1,13 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp8bqrjb1kvd5"]
+[gd_scene load_steps=7 format=3 uid="uid://iumm6yo4wle2"]
 
-[ext_resource type="Script" path="res://scripts/base_entity.gd" id="1_4rf68"]
-[ext_resource type="Texture2D" uid="uid://cyqerplucrc8a" path="res://sprites/bullet/bullet_sheet.png" id="2_6l5l6"]
+[ext_resource type="Script" path="res://scripts/base_entity_2d.gd" id="1_nhoir"]
+[ext_resource type="Texture2D" uid="uid://cyqerplucrc8a" path="res://sprites/bullet/bullet_sheet.png" id="2_bchel"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oy2uj"]
-atlas = ExtResource("2_6l5l6")
+atlas = ExtResource("2_bchel")
 region = Rect2(32, 32, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_cems5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1ht5"]
+atlas = ExtResource("2_bchel")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bq80u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -16,17 +20,26 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1ht5")
+}],
+"loop": true,
+"name": &"pointy",
+"speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3c11k"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4hb87"]
 
-[node name="Base Entity" type="AnimatableBody2D" groups=["base_entity"]]
-script = ExtResource("1_4rf68")
+[node name="BaseEntity2D" type="Area2D" groups=["base_entity_2d"]]
+script = ExtResource("1_nhoir")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.76837e-07, -4.76837e-07)
 scale = Vector2(1.25, 1.25)
-sprite_frames = SubResource("SpriteFrames_cems5")
+sprite_frames = SubResource("SpriteFrames_bq80u")
+animation = &"pointy"
 autoplay = "default"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
@@ -35,7 +48,7 @@ autoplay = "default"
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["entity_base_collision_shape"]]
-shape = SubResource("CircleShape2D_3c11k")
+shape = SubResource("CircleShape2D_4hb87")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

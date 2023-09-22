@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://coo25grvx070x"]
+
+[ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="2_aui42"]
+[ext_resource type="PackedScene" uid="uid://dx2wlbq1tg7cm" path="res://scenes/emitter_2d.tscn" id="2_uipto"]
+
+[node name="Game Test Environment" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("2_aui42")]
+position = Vector2(461, 773)
+
+[node name="Emitter2D2" parent="." instance=ExtResource("2_uipto")]
+position = Vector2(1288, 46)
+emission_delay = 0.2
+start_delay = 1.0
+emission_count = 56
+max_emissions = 4000
+entity_speed = 147.0
+wave_degree_offset = 67.0
+emitted_life_time = -1.0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(-138, -92)
+gravity_scale = 0.1
+constant_force = Vector2(95, 2)
+
+[node name="Emitter2D" parent="RigidBody2D" instance=ExtResource("2_uipto")]
+emission_delay = 0.5
+start_delay = 1.0
+emission_count = 27
+max_emissions = 4000
+time_between_entities = 0.05
+entity_speed = 147.0
+wave_degree_offset = 37.0
+mirrored = true
+emitted_life_time = -1.0
+auto_vanish = false
