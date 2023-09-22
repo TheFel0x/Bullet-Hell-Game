@@ -1,2 +1,3 @@
-- Make it not lag
-    - Bullet might need to become a RigidBody2D again to take advantage of physics..?
+(- Make it not lag)
+- Add shooting
+    - different controls on QWERTZ and QWERTY etc..?
