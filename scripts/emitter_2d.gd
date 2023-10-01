@@ -10,7 +10,7 @@ enum BulletSprite {
 
 @export var emission_delay: float = 0.3 # delay between waves in seconds.
 @export var start_delay: float = -1.0 # delay before starting in seconds. instant if <= 0
-@export var emission_count: int = 20 # number of entity emissions per wave. spread across 360°
+@export var emission_count: int = 20 # number of entity emissions per wave. spread across 360° (or the chosen max_angle)
 @export var max_emissions: int = -1 # number of emissions after which the emitter destroys. -1 = infinite
 @export var time_between_entities: float = -1 # time in-between single emissions within the wave. instant if <= 0
 @export var entity_speed: float = 160.0 # speed of emitted entity
@@ -22,6 +22,8 @@ enum BulletSprite {
 @export var entity_radius: float = 5.0 # radius of spawned entity
 @export var emitter_sprite: BulletSprite = BulletSprite.ROUND # own sprite
 @export var entity_sprite: BulletSprite = BulletSprite.POINTY # entity sprite
+@export var entity_start_delay: float = -1.0 # start delay for bullets
+@export var synchronized_awake: bool = false # when entities spawn with delay, determines if they should awaken synchronized 
 
 var _degree: float = 0.0 # angle in between emitted entities. is calculated from the emission_count variable
 var _emitted_count: int = 0 # counts emitted entities
@@ -62,15 +64,15 @@ func _process(delta):
 	pass
 
 func start():
-	#print_debug("Emitter started...")
+	# don't have an initial start delay
+	_on_emission_timer_timeout()
+	
 	$EmissionTimer.set_wait_time(emission_delay)
 	$EmissionTimer.start()
-	# don't have a start delay
-	_on_emission_timer_timeout()
 
 # Delayed Start
 func _on_delayed_start_timer_timeout():
-	#print_debug("Emitter delay...")
+	print_debug("Emitter delay...")
 	start()
 
 func _angle_to_vector(degrees) -> Vector2:
@@ -80,7 +82,7 @@ func _angle_to_vector(degrees) -> Vector2:
 	return Vector2(x, y).normalized()
 
 # Emit entity. TODO: life time, entity type
-func _emit(angle: float):
+func _emit(angle: float, sync: float):
 	
 	# Don't spawn bullets off screen
 	if not $VisibleOnScreenNotifier2D.is_on_screen():
@@ -90,6 +92,10 @@ func _emit(angle: float):
 	#print_debug("Emitting... SCHEDULED "+str(_scheduled_count)+" EMITTED "+str(_emitted_count))
 	var speed = entity_speed
 	var bullet_inst: Bullet2D = BulletScene.instantiate()
+	
+	# Set start delay + wave sync (may be 0)
+	bullet_inst.start_delay = entity_start_delay + sync
+	
 	bullet_inst.life_time = emitted_life_time
 	bullet_inst.set_animation(_enum_to_animation(entity_sprite) )
 	
@@ -137,9 +143,21 @@ func _emit_all():
 		
 		#print_debug("Emitting entity number " + str(n) + " at " + str(angle) + "°")
 		
-		_emit(angle)
+		_emit(angle, 0.0)
 
 func _emit_all_timed():
+	
+	# TODO: instead of doing math, perhaps the bullets should listen to a signal that tells them to start or stop moving.
+	
+	# time between bullets
+	var bullet_delay: float = 0.0 if time_between_entities <= 0.0 else time_between_entities
+	
+	# Awake upon last bullet in wave if <= 0.0, else at wait time 
+	var awake_delay: float = 0.0 if entity_start_delay <= 0.0 else entity_start_delay
+	
+	# time at which the last bullet is spawned, relative to the first spawned bullet
+	var total_time_per_wave: float = bullet_delay * emission_count 
+	
 	for n in range(emission_count):
 		
 		if max_emissions >= 0 and _scheduled_count >= max_emissions or max_emissions >= 0 and _emitted_count >= max_emissions:
@@ -148,18 +166,25 @@ func _emit_all_timed():
 		var angle = _degree * (n)
 		angle *= -1 if mirrored else 1
 		
+		# calc synchronized awake time, unique to each bullet
+		var sync: float = 0.0
+		
+		# calc if needed
+		if synchronized_awake:
+			sync = total_time_per_wave - (bullet_delay * n) # Calculate the unique wait time of the bullet relative to the wave
+		
 		if n == 0:
 			#print_debug("TIMED Emitting entity number " + str(n) + " at " + str(angle) + "°")
-			_emit(angle)
+			_emit(angle, sync)
 		else:
-			#print_debug("TIMED Emitting timed entity number " + str(n) + " at " + str(angle) + "°")
 			var emit_timer: Timer = Timer.new()
 			emit_timer.set_one_shot(true)
 			emit_timer.set_wait_time(n * time_between_entities)
-			emit_timer.timeout.connect(self._emit.bind(angle))
+			emit_timer.timeout.connect(self._emit.bind(angle, sync))
 			add_child(emit_timer)
 			emit_timer.start()
 		
+		print_debug("Scheduled Bullet "+str(n)+" at "+str(angle)+"° and "+str(sync)+"s sync")
 		_scheduled_count += 1
 
 # FIXME this doesn't work anymore since the children aren't part of this tree

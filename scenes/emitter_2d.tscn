@@ -19,6 +19,8 @@ emission_distance = 0.0
 entity_radius = 5.0
 emitter_sprite = 1
 entity_sprite = 2
+entity_start_delay = -1.0
+synchronized_awake = false
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
 wait_time = 99999.0

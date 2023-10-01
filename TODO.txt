@@ -1,3 +1,11 @@
 (- Make it not lag)
 - Add shooting
     - different controls on QWERTZ and QWERTY etc..?
+- Add bullet start delay
+
+
+# Ideas
+    Bosses:
+        - Mojibake theme
+        - Faling star theme
+        

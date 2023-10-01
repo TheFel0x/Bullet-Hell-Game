@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://di5tkxdlpmv6t" path="res://backgrounds/background_night_sky.tscn" id="1_rutlm"]
 [ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="2_aui42"]
-[ext_resource type="PackedScene" uid="uid://ctsnbdqewl3od" path="res://scenes/spellcards/comet_storm.tscn" id="5_26sr5"]
+[ext_resource type="PackedScene" uid="uid://dx2wlbq1tg7cm" path="res://scenes/emitter_2d.tscn" id="3_6g64a"]
 
 [node name="Game Test Environment" type="Node"]
 
@@ -11,4 +11,17 @@
 [node name="Player" parent="." instance=ExtResource("2_aui42")]
 position = Vector2(690, 736)
 
-[node name="Comet Storm" parent="." instance=ExtResource("5_26sr5")]
+[node name="Emitter2D" parent="." instance=ExtResource("3_6g64a")]
+position = Vector2(322, 322)
+rotation = -2.71748
+emission_delay = 0.7
+start_delay = 0.5
+emission_count = 5
+max_emissions = 500
+time_between_entities = 0.05
+entity_speed = 240.0
+emitted_life_time = -1.0
+max_angle = 45.0
+emission_distance = 100.0
+entity_start_delay = 0.2
+synchronized_awake = true

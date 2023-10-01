@@ -19,6 +19,8 @@ wave_degree_offset = 37.0
 mirrored = true
 emitted_life_time = 60.0
 entity_sprite = 3
+entity_start_delay = -1.0
+synchronized_awake = false
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
