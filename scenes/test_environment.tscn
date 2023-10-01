@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://coo25grvx070x"]
+[gd_scene load_steps=5 format=3 uid="uid://coo25grvx070x"]
 
 [ext_resource type="PackedScene" uid="uid://di5tkxdlpmv6t" path="res://backgrounds/background_night_sky.tscn" id="1_rutlm"]
 [ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="2_aui42"]
 [ext_resource type="PackedScene" uid="uid://dx2wlbq1tg7cm" path="res://scenes/emitter_2d.tscn" id="3_6g64a"]
+[ext_resource type="PackedScene" uid="uid://cdt43dpdpml44" path="res://scenes/rotator_2d.tscn" id="3_et7pr"]
 
 [node name="Game Test Environment" type="Node"]
 
@@ -11,17 +12,37 @@
 [node name="Player" parent="." instance=ExtResource("2_aui42")]
 position = Vector2(690, 736)
 
-[node name="Emitter2D" parent="." instance=ExtResource("3_6g64a")]
-position = Vector2(322, 322)
-rotation = -2.71748
-emission_delay = 0.7
+[node name="Rotator2D" parent="." instance=ExtResource("3_et7pr")]
+position = Vector2(644, 414)
+speed = 1.205
+
+[node name="Emitter2D2" parent="Rotator2D" instance=ExtResource("3_6g64a")]
+position = Vector2(59, -20)
+emitter_sprite = 3
+start_delay = 0.315
+mirrored = true
+emission_count = 7
+time_between_entities = 0.0
+wave_degree_offset = 17.0
+entity_sprite = 3
+entity_speed = 130.0
+entity_start_delay = 0.0
+max_emissions = 5000
+emitted_life_time = -1.0
+
+[node name="Rotator2D2" parent="." instance=ExtResource("3_et7pr")]
+position = Vector2(643, 414)
+
+[node name="Emitter2D3" parent="Rotator2D2" instance=ExtResource("3_6g64a")]
+position = Vector2(157, -84)
+rotation = -3.14159
+emission_delay = 0.605
 start_delay = 0.5
-emission_count = 5
-time_between_entities = 0.05
-emission_distance = 100.0
-max_angle = 45.0
-entity_speed = 240.0
-entity_start_delay = 0.2
-synchronized_awake = true
-max_emissions = 500
+emission_count = 33
+time_between_entities = 0.0
+wave_degree_offset = 1.0
+entity_sprite = 1
+entity_speed = 130.0
+entity_start_delay = 0.0
+max_emissions = 5000
 emitted_life_time = -1.0

@@ -136,7 +136,8 @@ func _emit(angle: float, sync: float):
 	var bullet_inst: Bullet2D = BulletScene.instantiate()
 	
 	# Set start delay + wave sync (may be 0)
-	bullet_inst.start_delay = entity_start_delay + sync
+	var start_delay = 0.0 if entity_start_delay <= 0.0 else entity_start_delay
+	bullet_inst.start_delay = start_delay + sync
 	
 	# Set Life Time and Animation
 	bullet_inst.life_time = emitted_life_time
@@ -209,8 +210,6 @@ func _emit_all_timed():
 	
 	# Delay between bullets; can't use negatives for calculation -> 0
 	var bullet_delay: float = 0.0 if time_between_entities <= 0.0 else time_between_entities
-	# Awake time after last bullet in wave; can't use negatives for calculation -> 0
-	var awake_delay: float = 0.0 if entity_start_delay <= 0.0 else entity_start_delay
 	# Time at which the last bullet is spawned, Relative to when the first spawned bullet
 	var total_time_per_wave: float = bullet_delay * emission_count 
 	
