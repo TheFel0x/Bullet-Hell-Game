@@ -18,4 +18,5 @@ func _process(delta):
 func _physics_process(delta):
 	if not awake:
 		return
+	# FIXME: this is not RPM, I believe
 	rotate(speed * delta)
