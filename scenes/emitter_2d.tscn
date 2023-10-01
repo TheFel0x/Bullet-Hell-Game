@@ -5,22 +5,22 @@
 
 [node name="Emitter2D" groups=["emitter_2d"] instance=ExtResource("1_wxr7h")]
 script = ExtResource("2_ks2dd")
+emitter_sprite = 1
 emission_delay = 0.3
 start_delay = -1.0
-emission_count = 20
-max_emissions = -1
-time_between_entities = -1.0
-entity_speed = 160.0
-wave_degree_offset = 10.0
 mirrored = false
-emitted_life_time = 10.0
+emission_count = 20
 max_angle = 360.0
+time_between_entities = -1.0
+wave_degree_offset = 10.0
 emission_distance = 0.0
-entity_radius = 5.0
-emitter_sprite = 1
 entity_sprite = 2
+entity_speed = 160.0
+entity_radius = 5.0
 entity_start_delay = -1.0
 synchronized_awake = false
+max_emissions = -1
+emitted_life_time = 10.0
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
 wait_time = 99999.0
