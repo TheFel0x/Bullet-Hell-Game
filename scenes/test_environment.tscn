@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://di5tkxdlpmv6t" path="res://backgrounds/background_night_sky.tscn" id="1_rutlm"]
 [ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="2_aui42"]
 [ext_resource type="PackedScene" uid="uid://dvyb7bvqorlws" path="res://scenes/levels/base_level.tscn" id="2_qr3cp"]
-[ext_resource type="PackedScene" uid="uid://dx2wlbq1tg7cm" path="res://scenes/emitter_2d.tscn" id="3_6g64a"]
+[ext_resource type="PackedScene" uid="uid://ctsnbdqewl3od" path="res://scenes/spellcards/comet_storm.tscn" id="4_iglhn"]
 [ext_resource type="PackedScene" uid="uid://sgqi84gnvqay" path="res://scenes/ui/level_ui.tscn" id="5_guovp"]
 
 [node name="Game Test Environment" type="Node"]
@@ -12,20 +12,9 @@
 
 [node name="BaseLevel" parent="." instance=ExtResource("2_qr3cp")]
 
-[node name="CometEmitter" parent="BaseLevel" instance=ExtResource("3_6g64a")]
-position = Vector2(678, 489)
-emission_delay = 0.5
-start_delay = 1.0
-mirrored = true
-emission_count = 27
-time_between_entities = 0.05
-wave_degree_offset = 37.0
-entity_sprite = 3
-entity_speed = 147.0
-max_emissions = 4000
-emitted_life_time = 60.0
-
 [node name="Player" parent="BaseLevel" instance=ExtResource("2_aui42")]
 position = Vector2(690, 736)
+
+[node name="Comet Storm" parent="BaseLevel" instance=ExtResource("4_iglhn")]
 
 [node name="level_ui" parent="." instance=ExtResource("5_guovp")]
