@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvyb7bvqorlws"]
+[gd_scene load_steps=4 format=3 uid="uid://dvyb7bvqorlws"]
 
 [ext_resource type="Shader" path="res://shader/example_shader_shapes.gdshader" id="1_phhqy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sojiq"]
 shader = ExtResource("1_phhqy")
 
+[sub_resource type="Curve2D" id="Curve2D_45pkp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 800, 0, 0, 0, 0, 0, 800, 940, 0, 0, 0, 0, 0, 940, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [node name="BaseLevel" type="Node"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background Shader" type="ColorRect" parent="."]
 z_index = -1
 material = SubResource("ShaderMaterial_sojiq")
 anchors_preset = 15
@@ -17,3 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Level Border" type="Path2D" parent="."]
+position = Vector2(66, 32)
+curve = SubResource("Curve2D_45pkp")

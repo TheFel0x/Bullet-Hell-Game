@@ -1,1 +1,3 @@
 res://scenes/test_environment.tscn
+res://scenes/levels/base_level.tscn
+res://scenes/ui/level_ui.tscn
