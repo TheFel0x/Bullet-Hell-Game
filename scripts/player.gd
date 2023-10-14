@@ -21,6 +21,10 @@ func get_input():
 		$ShootTimer.start()
 	if Input.is_action_just_released("shoot"):
 		$ShootTimer.stop()
+	
+	if Input.is_action_just_pressed("bomb"):
+		# TODO: implement boms
+		print_debug("KA-BOOOOOM!")
 
 func _physics_process(delta):
 	get_input()
@@ -43,18 +47,20 @@ func _on_area_entered(area):
 
 func _on_shoot_timer_timeout():
 	# Spawn Bullet
-	var direction: Vector2 = Vector2(0,-1000)
+	var speed = 1000
+	var direction: Vector2 = Vector2(0,-1) * speed
 	var emission_distance: int = 20
 	
 	var bullet_inst: Bullet2D = BulletScene.instantiate()
 	
+	bullet_inst.set_direction(direction)
 	bullet_inst.position = global_position + direction.normalized() * emission_distance
 	# FIXME: use of magic string
 	bullet_inst.set_animation("round")
 	#bullet_inst.set_direction(Vector2(0,0))
 	#bullet_inst.look_at()
 	get_parent().get_parent().add_child(bullet_inst)
-	
-	print_debug("Pew!")
-	
+	# FIXME: another magic string :( ; also this doesn't do anything yet!
+	bullet_inst.add_to_group('player_projectile')
+
 

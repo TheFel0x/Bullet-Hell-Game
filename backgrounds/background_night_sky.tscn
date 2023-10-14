@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://di5tkxdlpmv6t"]
+[gd_scene load_steps=4 format=3 uid="uid://di5tkxdlpmv6t"]
 
 [ext_resource type="Shader" path="res://shader/example_shader_night_sky.gdshader" id="1_lwlm8"]
 
@@ -16,6 +16,12 @@ shader_parameter/near_stars_color = Color(1, 1, 1, 1)
 shader_parameter/base_scroll_speed = 0.15
 shader_parameter/additional_scroll_speed = 0.05
 
+[sub_resource type="Curve2D" id="Curve2D_vu8x5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 800, 0, 0, 0, 0, 0, 800, 940, 0, 0, 0, 0, 0, 940, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [node name="Night Sky" type="Node"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -23,8 +29,16 @@ material = SubResource("ShaderMaterial_imulj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = 32.0
+offset_right = -468.0
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="ColorRect"]
+
+[node name="Level Border" type="Path2D" parent="."]
+position = Vector2(66, 32)
+curve = SubResource("Curve2D_vu8x5")

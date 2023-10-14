@@ -13,7 +13,7 @@
 [node name="BaseLevel" parent="." instance=ExtResource("2_qr3cp")]
 
 [node name="Player" parent="BaseLevel" instance=ExtResource("2_aui42")]
-position = Vector2(690, 736)
+position = Vector2(690, 735)
 
 [node name="Comet Storm" parent="BaseLevel" instance=ExtResource("4_iglhn")]
 

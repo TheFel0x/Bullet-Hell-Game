@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://sgqi84gnvqay"]
+[gd_scene load_steps=5 format=3 uid="uid://sgqi84gnvqay"]
 
+[ext_resource type="Shader" path="res://scenes/ui/level_ui.gdshader" id="1_ab0gr"]
 [ext_resource type="Texture2D" uid="uid://bb076rsye8jkc" path="res://scenes/ui/resources/level_ui_background.png" id="1_b6ysw"]
+[ext_resource type="Texture2D" uid="uid://cbx2s17jlk2ex" path="res://scenes/ui/resources/level_ui_background_mask.png" id="3_myumr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nr1tc"]
+shader = ExtResource("1_ab0gr")
+shader_parameter/screen_mask = ExtResource("3_myumr")
 
 [node name="level_ui" type="Control"]
 top_level = true
@@ -22,3 +28,9 @@ layout_mode = 0
 offset_right = 1334.0
 offset_bottom = 1000.0
 texture = ExtResource("1_b6ysw")
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+material = SubResource("ShaderMaterial_nr1tc")
+layout_mode = 0
+offset_right = 1334.0
+offset_bottom = 1000.0
