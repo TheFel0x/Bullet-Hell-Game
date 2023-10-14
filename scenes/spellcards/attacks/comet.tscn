@@ -11,16 +11,14 @@ script = ExtResource("1_tybkn")
 [node name="CometEmitter" parent="." instance=ExtResource("1_jnru7")]
 emission_delay = 0.5
 start_delay = 1.0
-emission_count = 27
-max_emissions = 4000
-time_between_entities = 0.05
-entity_speed = 147.0
-wave_degree_offset = 37.0
 mirrored = true
-emitted_life_time = 60.0
+emission_count = 27
+time_between_entities = 0.05
+wave_degree_offset = 37.0
 entity_sprite = 3
-entity_start_delay = -1.0
-synchronized_awake = false
+entity_speed = 147.0
+max_emissions = 4000
+emitted_life_time = 60.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 

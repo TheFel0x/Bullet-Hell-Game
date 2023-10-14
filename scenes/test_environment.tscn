@@ -1,48 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://coo25grvx070x"]
+[gd_scene load_steps=6 format=3 uid="uid://coo25grvx070x"]
 
 [ext_resource type="PackedScene" uid="uid://di5tkxdlpmv6t" path="res://backgrounds/background_night_sky.tscn" id="1_rutlm"]
 [ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="2_aui42"]
+[ext_resource type="PackedScene" uid="uid://dvyb7bvqorlws" path="res://scenes/levels/base_level.tscn" id="2_qr3cp"]
 [ext_resource type="PackedScene" uid="uid://dx2wlbq1tg7cm" path="res://scenes/emitter_2d.tscn" id="3_6g64a"]
-[ext_resource type="PackedScene" uid="uid://cdt43dpdpml44" path="res://scenes/rotator_2d.tscn" id="3_et7pr"]
+[ext_resource type="PackedScene" uid="uid://sgqi84gnvqay" path="res://scenes/ui/level_ui.tscn" id="5_guovp"]
 
 [node name="Game Test Environment" type="Node"]
 
 [node name="Night Sky" parent="." instance=ExtResource("1_rutlm")]
 
-[node name="Player" parent="." instance=ExtResource("2_aui42")]
+[node name="BaseLevel" parent="." instance=ExtResource("2_qr3cp")]
+
+[node name="CometEmitter" parent="BaseLevel" instance=ExtResource("3_6g64a")]
+position = Vector2(678, 489)
+emission_delay = 0.5
+start_delay = 1.0
+mirrored = true
+emission_count = 27
+time_between_entities = 0.05
+wave_degree_offset = 37.0
+entity_sprite = 3
+entity_speed = 147.0
+max_emissions = 4000
+emitted_life_time = 60.0
+
+[node name="Player" parent="BaseLevel" instance=ExtResource("2_aui42")]
 position = Vector2(690, 736)
 
-[node name="Rotator2D" parent="." instance=ExtResource("3_et7pr")]
-position = Vector2(644, 414)
-speed = 1.205
-
-[node name="Emitter2D2" parent="Rotator2D" instance=ExtResource("3_6g64a")]
-position = Vector2(59, -20)
-emitter_sprite = 3
-start_delay = 0.315
-mirrored = true
-emission_count = 7
-time_between_entities = 0.0
-wave_degree_offset = 17.0
-entity_sprite = 3
-entity_speed = 130.0
-entity_start_delay = 0.0
-max_emissions = 5000
-emitted_life_time = -1.0
-
-[node name="Rotator2D2" parent="." instance=ExtResource("3_et7pr")]
-position = Vector2(643, 414)
-
-[node name="Emitter2D3" parent="Rotator2D2" instance=ExtResource("3_6g64a")]
-position = Vector2(157, -84)
-rotation = -3.14159
-emission_delay = 0.605
-start_delay = 0.5
-emission_count = 33
-time_between_entities = 0.0
-wave_degree_offset = 1.0
-entity_sprite = 1
-entity_speed = 130.0
-entity_start_delay = 0.0
-max_emissions = 5000
-emitted_life_time = -1.0
+[node name="level_ui" parent="." instance=ExtResource("5_guovp")]

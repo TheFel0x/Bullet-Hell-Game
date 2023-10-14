@@ -21,7 +21,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 # Life Time ended
 func _on_life_timer_timeout():
-	# FIXME: returning here just for testing PLEASE FIX THE LIFE TIME LATER
-	return
+	# FIXME: this check should NOT be necessary but for whatever reason the time starts regardless of value currently.
+	if life_time <= 0.0:
+		return
 	print_debug("LifeTimer ended. Timer was "+str(life_time))
 	queue_free()

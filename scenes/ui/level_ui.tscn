@@ -1,8 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://sgqi84gnvqay"]
 
-[ext_resource type="Texture2D" uid="uid://7owani3y7vcq" path="res://temp/template.jpg" id="1_gre1x"]
+[ext_resource type="Texture2D" uid="uid://bb076rsye8jkc" path="res://scenes/ui/resources/level_ui_background.png" id="1_b6ysw"]
 
 [node name="level_ui" type="Control"]
+top_level = true
+light_mask = 513
+visibility_layer = 513
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,8 +14,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
+top_level = true
+light_mask = 0
+visibility_layer = 513
+z_index = 10
 layout_mode = 0
-offset_left = -222.0
-offset_right = 1557.0
+offset_right = 1334.0
 offset_bottom = 1000.0
-texture = ExtResource("1_gre1x")
+texture = ExtResource("1_b6ysw")

@@ -22,6 +22,10 @@ window/size/viewport_height=1000
 window/size/resizable=false
 window/stretch/aspect="keep_width"
 
+[dotnet]
+
+project/assembly_name="Bullet Hell Game"
+
 [input]
 
 move_left={
