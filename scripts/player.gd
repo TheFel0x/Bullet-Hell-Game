@@ -5,6 +5,12 @@ const SPEED = 400.0
 const PRECISION_SPEED = 200.0
 var velocity: Vector2 = Vector2(0, 0)
 
+# TODO: implement these!
+var power: float = 1.0 # How much power / level? How many levels?
+var bombs: int = 3 # How many at the start of a life?
+var lives: int = 5 # How many at the start of the game?
+var points: int = 0
+
 # TODO: Maybe use some other type of bullet?
 const BulletScene = preload("res://scenes/bullet_2d.tscn") 
 
