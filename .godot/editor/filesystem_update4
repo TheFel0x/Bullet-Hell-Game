@@ -1,11 +1,11 @@
-res://scenes/ui/level_ui.tscn
-res://shader/example_shader_night_sky.gdshader
-res://scenes/levels/base_level.tscn
 res://scenes/test_environment.tscn
+res://shader/example_shader_night_sky.gdshader
+res://shader/example_shader_shapes.gdshader
 res://scenes/ui/level_ui.gdshader
 res://shader/example_shader_waterclouds.gdshader
+res://scenes/levels/base_level.tscn
+res://scenes/ui/level_ui.tscn
 res://backgrounds/background_test.tscn
-res://scripts/player.gd
 res://scenes/player.tscn
 res://backgrounds/background_night_sky.tscn
-res://shader/example_shader_shapes.gdshader
+res://scenes/spellcards/comet_storm.tscn

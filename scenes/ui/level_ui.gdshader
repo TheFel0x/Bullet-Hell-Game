@@ -36,7 +36,8 @@ void fragment() {
   	COLOR = vec4(col, 0.1);
 
 	// Apply alpha mask
+	float opacity = 0.7;
 	vec2 muv = UV;
 	muv.y = 1.0 - muv.y;
-	COLOR.a = 0.1 - texture(screen_mask, muv).r;
+	COLOR.a = texture(screen_mask, muv).r - opacity;
 }
