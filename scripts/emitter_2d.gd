@@ -63,7 +63,7 @@ enum BulletSprite {
 ## Entity stopping time before going into homing mode in seconds
 @export var homing_dumb_pause_time: float = 1.0
 ## Entity speed during homing
-@export var homing_speed: float = 200.0
+@export var homing_speed: int = 200
 
 var _degree: float = 0.0 # angle in between emitted entities. is calculated from the emission_count variable
 var _emitted_count: int = 0 # counts emitted entities
@@ -182,10 +182,12 @@ func _emit(angle: float, sync: float):
 	
 	# Set optional homing settings
 	if bullet_inst.is_in_group("homing_bullet_2d"):
-		# FIXME: bullet isnt actually taking these...?
-		bullet_inst.dumb_move_time = homing_dumb_move_time
-		bullet_inst.dumb_pause_time = homing_dumb_pause_time
-		bullet_inst.speed = homing_speed
+		if bullet_inst.has_method("set_homing_properties"):
+			bullet_inst.set_homing_properties(homing_dumb_move_time,homing_dumb_pause_time,homing_speed)
+			# FIXME: not sure if thats actually how I meant to use this but I need to call it for the properties to take effect
+			bullet_inst._awaken()
+		else:
+			print_debug("METHOD set_homing_properties NOT FOUND IN BULLET OF GROUP homing_bullet_2d")
 	
 	# Count how many bullets were emitted
 	_emitted_count += 1

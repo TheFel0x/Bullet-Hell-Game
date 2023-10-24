@@ -23,6 +23,12 @@ var rng = RandomNumberGenerator.new()
 
 var _is_dumb: bool = false
 
+func set_homing_properties(d_move_time: float, d_pause_time: float, h_speed: int):
+	print_debug("set")
+	dumb_move_time = d_move_time
+	dumb_pause_time = d_pause_time
+	h_speed = speed
+
 func set_target(target: Area2D):
 	_target = target
 
