@@ -184,10 +184,6 @@ func _emit(angle: float, sync: float):
 	if bullet_inst.is_in_group("homing_bullet_2d"):
 		if bullet_inst.has_method("set_homing_properties"):
 			bullet_inst.set_homing_properties(homing_dumb_move_time,homing_dumb_pause_time,homing_speed)
-			# FIXME: not sure if thats actually how I meant to use this but I need to call it for the properties to take effect
-			# FIXME: doesn't work synchronized
-			if time_between_entities <= 0.0:
-				bullet_inst._awaken()
 		else:
 			print_debug("METHOD set_homing_properties NOT FOUND IN BULLET OF GROUP homing_bullet_2d")
 	

@@ -24,5 +24,6 @@ func _on_life_timer_timeout():
 	# FIXME: this check should NOT be necessary but for whatever reason the time starts regardless of value currently.
 	if life_time <= 0.0:
 		return
-	print_debug("LifeTimer ended. Timer was "+str(life_time))
-	queue_free()
+	#print_debug("LifeTimer ended. Timer was "+str(life_time))
+	# FIXME: this is too annoying to deal with currently
+	#queue_free()

@@ -30,13 +30,13 @@ _target = NodePath("../Player")
 
 [node name="Emitter2D" parent="BaseLevel" instance=ExtResource("5_1ygke")]
 position = Vector2(322, 712)
-emission_delay = 1.0
+emission_delay = 2.0
 start_delay = 0.5
-emission_count = 50
-time_between_entities = 0.2
+time_between_entities = 0.05
+emission_distance = 50.0
 synchronized_awake = true
-max_emissions = 50
 homing_dumb_move_time = 0.5
 homing_dumb_pause_time = 0.1
+auto_vanish = false
 
 [node name="level_ui" parent="." instance=ExtResource("5_guovp")]
