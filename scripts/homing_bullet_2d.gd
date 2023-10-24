@@ -54,6 +54,9 @@ func _awaken():
 		$DumbMoveTimer.wait_time = dumb_move_time
 		_is_dumb = true
 		$DumbMoveTimer.start()
+	else:
+		_is_dumb = true
+		_on_dumb_move_timer_timeout()
 	super()
 
 func _get_smart():
@@ -77,6 +80,7 @@ func _physics_process(delta):
 
 
 func _on_dumb_move_timer_timeout():
+	print_debug("Dumb move time was "+str(dumb_move_time))
 	if not dumb_pause_time <= 0.0:
 		_direction = Vector2(0,0)
 		$DumbPauseTimer.wait_time = dumb_pause_time

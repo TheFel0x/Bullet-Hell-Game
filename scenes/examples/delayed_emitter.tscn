@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://mjyjwbxsjgce"]
+
+[ext_resource type="PackedScene" uid="uid://dx2wlbq1tg7cm" path="res://scenes/emitter_2d.tscn" id="1_7jji2"]
+[ext_resource type="PackedScene" uid="uid://80fxlvi71dix" path="res://scenes/bullet_2d.tscn" id="2_4bofm"]
+
+[node name="Delayed Emitter" instance=ExtResource("1_7jji2")]
+time_between_entities = 0.07
+wave_degree_offset = 0.0
+emitted_life_time = -1.0
+BulletScene = ExtResource("2_4bofm")
+auto_vanish = false

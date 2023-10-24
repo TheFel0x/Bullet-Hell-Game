@@ -70,6 +70,9 @@ var _emitted_count: int = 0 # counts emitted entities
 var _scheduled_count: int = 0 # counts time emitted entities
 var _children_freed: int = 0 # counts despawned entities
 
+## Chosen Entities
+@export_category("Emitted Entity")
+## Emitted Entity
 @export var BulletScene = preload("res://scenes/homing_bullet_2d.tscn") 
 
 # FIXME: this should be functionality of BaseEntity instead
@@ -140,6 +143,13 @@ func _emit(angle: float, sync: float):
 	# Instantiate bullet
 	var bullet_inst: Bullet2D = BulletScene.instantiate()
 	
+	# Set optional homing settings
+	if bullet_inst.is_in_group("homing_bullet_2d"):
+		if bullet_inst.has_method("set_homing_properties"):
+			bullet_inst.set_homing_properties(homing_dumb_move_time,homing_dumb_pause_time,homing_speed)
+		else:
+			print_debug("METHOD set_homing_properties NOT FOUND IN BULLET OF GROUP homing_bullet_2d")
+	
 	# Set start delay + wave sync (may be 0)
 	var bullet_start_delay = 0.0 if entity_start_delay <= 0.0 else entity_start_delay
 	bullet_inst.start_delay = bullet_start_delay + sync
@@ -179,13 +189,6 @@ func _emit(angle: float, sync: float):
 	# Rotate the bullet toward where its going
 	bullet_inst.look_at(bullet_inst.position+direction)
 	bullet_inst.rotate(PI/2)
-	
-	# Set optional homing settings
-	if bullet_inst.is_in_group("homing_bullet_2d"):
-		if bullet_inst.has_method("set_homing_properties"):
-			bullet_inst.set_homing_properties(homing_dumb_move_time,homing_dumb_pause_time,homing_speed)
-		else:
-			print_debug("METHOD set_homing_properties NOT FOUND IN BULLET OF GROUP homing_bullet_2d")
 	
 	# Count how many bullets were emitted
 	_emitted_count += 1

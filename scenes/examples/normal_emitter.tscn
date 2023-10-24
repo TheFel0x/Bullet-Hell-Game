@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl3afjnybibmf"]
+
+[ext_resource type="PackedScene" uid="uid://dx2wlbq1tg7cm" path="res://scenes/emitter_2d.tscn" id="1_wrje4"]
+[ext_resource type="PackedScene" uid="uid://80fxlvi71dix" path="res://scenes/bullet_2d.tscn" id="2_cgp0e"]
+
+[node name="Normal Emitter" instance=ExtResource("1_wrje4")]
+emitted_life_time = -1.0
+BulletScene = ExtResource("2_cgp0e")
+auto_vanish = false
