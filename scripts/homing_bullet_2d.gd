@@ -42,6 +42,8 @@ func _find_direction():
 	return (unit_vec * speed)
 
 func _awaken():
+	print_debug("move time: "+str(dumb_move_time))
+	print_debug("pause time: "+str(dumb_pause_time))
 	if not dumb_move_time <= 0.0:
 		$DumbMoveTimer.wait_time = dumb_move_time
 		_is_dumb = true
