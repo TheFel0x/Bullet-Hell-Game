@@ -15,3 +15,8 @@ res://scripts/base_entity_2d.gd
 res://scripts/bullet_2d.gd
 res://scripts/emitter_2d.gd
 res://scenes/spellcards/attacks/comet.gd
+res://scenes/homing_bullet_2d.tscn
+res://scenes/homing_bullet_2d.gd
+res://scenes/bullet_2d.tscn
+res://scenes/base_entity_2d.tscn
+res://scripts/homing_bullet_2d.gd

@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://di5tkxdlpmv6t" path="res://backgrounds/background_night_sky.tscn" id="1_rutlm"]
 [ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="2_aui42"]
 [ext_resource type="PackedScene" uid="uid://dvyb7bvqorlws" path="res://scenes/levels/base_level.tscn" id="2_qr3cp"]
-[ext_resource type="PackedScene" uid="uid://ctsnbdqewl3od" path="res://scenes/spellcards/comet_storm.tscn" id="4_iglhn"]
 [ext_resource type="PackedScene" uid="uid://sgqi84gnvqay" path="res://scenes/ui/level_ui.tscn" id="5_guovp"]
+[ext_resource type="PackedScene" uid="uid://daj5d1tju11ff" path="res://scenes/homing_bullet_2d.tscn" id="5_rjjvu"]
 
 [node name="Game Test Environment" type="Node"]
 
@@ -15,6 +15,24 @@
 [node name="Player" parent="BaseLevel" instance=ExtResource("2_aui42")]
 position = Vector2(690, 735)
 
-[node name="Comet Storm" parent="BaseLevel" instance=ExtResource("4_iglhn")]
+[node name="HomingBullet2D" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
+position = Vector2(188, 543)
+_target = NodePath("../Player")
+speed = 100
+
+[node name="HomingBullet2D2" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
+position = Vector2(316, 395)
+_target = NodePath("../Player")
+speed = 100
+
+[node name="HomingBullet2D3" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
+position = Vector2(610, 335)
+_target = NodePath("../Player")
+speed = 100
+
+[node name="HomingBullet2D4" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
+position = Vector2(815, 356)
+_target = NodePath("../Player")
+speed = 100
 
 [node name="level_ui" parent="." instance=ExtResource("5_guovp")]

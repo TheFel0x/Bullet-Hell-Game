@@ -144,7 +144,7 @@ func _emit(angle: float, sync: float):
 	bullet_inst.set_animation(_enum_to_animation(entity_sprite) )
 	
 	# Get number of current wave
-	var wave = int (_emitted_count / floor(emission_count)) # Note: There is absolutely no need to use floor() here, it's just there to avoid integer division warnings
+	var wave = int (_emitted_count / floor(emission_count)) # NOTE: There is absolutely no need to use floor() here, it's just there to avoid integer division warnings
 	# Set angle offset, determined by wave_degree_offset and the current wave
 	var offset = wave * (-1 * wave_degree_offset if mirrored else wave_degree_offset)
 	angle += offset
