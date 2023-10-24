@@ -56,6 +56,15 @@ enum BulletSprite {
 @export var max_emissions: int = -1 # number of emissions after which the emitter destroys. -1 = infinite
 @export var emitted_life_time: float = 10.0 # life time of emitted in obsseconds, infinite if <= 0 (not recommended)
 
+## Settings related homing
+@export_category("Homing Bullet Specific Settings")
+## Entity time to move in a straight line before homing in seconds
+@export var homing_dumb_move_time: float = 2.0
+## Entity stopping time before going into homing mode in seconds
+@export var homing_dumb_pause_time: float = 1.0
+## Entity speed during homing
+@export var homing_speed: float = 200.0
+
 var _degree: float = 0.0 # angle in between emitted entities. is calculated from the emission_count variable
 var _emitted_count: int = 0 # counts emitted entities
 var _scheduled_count: int = 0 # counts time emitted entities
@@ -170,6 +179,12 @@ func _emit(angle: float, sync: float):
 	# Rotate the bullet toward where its going
 	bullet_inst.look_at(bullet_inst.position+direction)
 	bullet_inst.rotate(PI/2)
+	
+	# Set optional homing settings
+	if bullet_inst.is_in_group("homing_bullet_2d"):
+		bullet_inst.dumb_move_time = homing_dumb_move_time
+		bullet_inst.dumb_pause_time = homing_dumb_pause_time
+		bullet_inst.speed = homing_speed
 	
 	# Count how many bullets were emitted
 	_emitted_count += 1

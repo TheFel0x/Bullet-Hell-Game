@@ -33,5 +33,6 @@ position = Vector2(322, 712)
 emission_delay = 1.0
 start_delay = 0.5
 emission_count = 50
+homing_dumb_move_time = 0.5
 
 [node name="level_ui" parent="." instance=ExtResource("5_guovp")]

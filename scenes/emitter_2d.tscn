@@ -22,6 +22,9 @@ entity_start_delay = -1.0
 synchronized_awake = false
 max_emissions = -1
 emitted_life_time = 10.0
+homing_dumb_move_time = 2.0
+homing_dumb_pause_time = 1.0
+homing_speed = 200.0
 BulletScene = ExtResource("3_wpkbq")
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
