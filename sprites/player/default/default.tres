@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://b660up7u6bxk7"]
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://b660up7u6bxk7"]
 
 [ext_resource type="Texture2D" uid="uid://bcaix3g3cg1wm" path="res://sprites/player/default/DEBUG/1.png" id="1_ahuh6"]
+[ext_resource type="Texture2D" uid="uid://ca8vhw8kn2r85" path="res://sprites/player/default/DEBUG/1_p.png" id="2_w8mkx"]
 
 [resource]
 animations = [{
@@ -27,9 +28,20 @@ animations = [{
 "name": &"right",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ahuh6")
+}],
 "loop": true,
 "name": &"still",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w8mkx")
+}],
+"loop": true,
+"name": &"still_precision",
 "speed": 5.0
 }, {
 "frames": [],

@@ -9,4 +9,5 @@ res://backgrounds/background_test.tscn
 res://scenes/player.tscn
 res://backgrounds/background_night_sky.tscn
 res://scenes/spellcards/comet_storm.tscn
+res://sprites/player/default/default.tres
 res://scripts/player.gd

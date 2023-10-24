@@ -16,6 +16,13 @@ const BulletScene = preload("res://scenes/bullet_2d.tscn")
 
 func get_input():
 	var precision_mode: bool = Input.is_action_pressed("precision")
+	
+	# TODO: better animation handling
+	if precision_mode:
+		$AnimatedSprite2D.play("still_precision")
+	else:
+		$AnimatedSprite2D.play("still")
+	
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction
 	velocity *= PRECISION_SPEED if precision_mode else SPEED
@@ -29,7 +36,7 @@ func get_input():
 		$ShootTimer.stop()
 	
 	if Input.is_action_just_pressed("bomb"):
-		# TODO: implement boms
+		# TODO: implement bombs
 		print_debug("KA-BOOOOOM!")
 
 func _physics_process(delta):

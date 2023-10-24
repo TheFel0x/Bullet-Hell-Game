@@ -11,7 +11,7 @@ script = ExtResource("1_1jokn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_vvq2o")
-animation = &"DEBUG"
+animation = &"still"
 autoplay = "DEBUG"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

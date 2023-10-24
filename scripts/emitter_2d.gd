@@ -54,7 +54,7 @@ enum BulletSprite {
 
 @export_category("Life Time and Stopping")
 @export var max_emissions: int = -1 # number of emissions after which the emitter destroys. -1 = infinite
-@export var emitted_life_time: float = 10.0 # life time of emitted in seconds, infinite if <= 0 (not recommended)
+@export var emitted_life_time: float = 10.0 # life time of emitted in obsseconds, infinite if <= 0 (not recommended)
 
 var _degree: float = 0.0 # angle in between emitted entities. is calculated from the emission_count variable
 var _emitted_count: int = 0 # counts emitted entities
