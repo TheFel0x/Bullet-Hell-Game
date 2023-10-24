@@ -98,7 +98,7 @@ func _ready():
 	else:
 		start()
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 ## Starts Emitter
@@ -136,15 +136,16 @@ func _emit(angle: float, sync: float):
 	var bullet_inst: Bullet2D = BulletScene.instantiate()
 	
 	# Set start delay + wave sync (may be 0)
-	var start_delay = 0.0 if entity_start_delay <= 0.0 else entity_start_delay
-	bullet_inst.start_delay = start_delay + sync
+	var bullet_start_delay = 0.0 if entity_start_delay <= 0.0 else entity_start_delay
+	bullet_inst.start_delay = bullet_start_delay + sync
 	
 	# Set Life Time and Animation
 	bullet_inst.life_time = emitted_life_time
 	bullet_inst.set_animation(_enum_to_animation(entity_sprite) )
 	
+	# Get number of current wave
+	var wave = int (_emitted_count / floor(emission_count)) # Note: There is absolutely no need to use floor() here, it's just there to avoid integer division warnings
 	# Set angle offset, determined by wave_degree_offset and the current wave
-	var wave = (_emitted_count / emission_count)
 	var offset = wave * (-1 * wave_degree_offset if mirrored else wave_degree_offset)
 	angle += offset
 	

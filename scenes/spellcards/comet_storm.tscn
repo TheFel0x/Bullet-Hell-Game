@@ -24,4 +24,3 @@ position = Vector2(-598, -690)
 
 [node name="Comet7" parent="." instance=ExtResource("1_vrdl7")]
 position = Vector2(-276, -1288)
-script = null

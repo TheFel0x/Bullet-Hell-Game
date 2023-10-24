@@ -11,3 +11,7 @@ res://backgrounds/background_night_sky.tscn
 res://scenes/spellcards/comet_storm.tscn
 res://sprites/player/default/default.tres
 res://scripts/player.gd
+res://scripts/base_entity_2d.gd
+res://scripts/bullet_2d.gd
+res://scripts/emitter_2d.gd
+res://scenes/spellcards/attacks/comet.gd

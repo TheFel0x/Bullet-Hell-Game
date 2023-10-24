@@ -39,7 +39,7 @@ func _ready():
 func _awaken():
 	_awake = true
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _physics_process(delta):

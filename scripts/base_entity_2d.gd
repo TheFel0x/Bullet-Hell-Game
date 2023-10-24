@@ -11,7 +11,7 @@ func _ready():
 	else:
 		$LifeTimer.stop()
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 # Delete on Screen Exited
