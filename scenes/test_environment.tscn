@@ -18,21 +18,78 @@ position = Vector2(690, 735)
 [node name="HomingBullet2D" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
 position = Vector2(188, 543)
 _target = NodePath("../Player")
-speed = 100
+dumb_move_time = 2.0
+dumb_pause_time = 1.0
+dumb_direction = null
 
 [node name="HomingBullet2D2" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
 position = Vector2(316, 395)
 _target = NodePath("../Player")
-speed = 100
+dumb_move_time = 2.0
+dumb_pause_time = 1.0
+dumb_direction = null
 
 [node name="HomingBullet2D3" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
 position = Vector2(610, 335)
 _target = NodePath("../Player")
-speed = 100
+dumb_move_time = 2.0
+dumb_pause_time = 1.0
+dumb_direction = null
 
 [node name="HomingBullet2D4" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
 position = Vector2(815, 356)
 _target = NodePath("../Player")
-speed = 100
+dumb_move_time = 2.0
+dumb_pause_time = 1.0
+dumb_direction = null
+
+[node name="HomingBullet2D5" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
+position = Vector2(402, 593)
+_target = NodePath("../Player")
+dumb_move_time = 2.0
+dumb_pause_time = 1.0
+dumb_direction = null
+
+[node name="HomingBullet2D6" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
+position = Vector2(816, 617)
+_target = NodePath("../Player")
+dumb_move_time = 2.0
+dumb_pause_time = 1.0
+dumb_direction = null
+
+[node name="HomingBullet2D7" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
+position = Vector2(659, 924)
+_target = NodePath("../Player")
+dumb_move_time = 2.0
+dumb_pause_time = 1.0
+dumb_direction = null
+
+[node name="HomingBullet2D8" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
+position = Vector2(224, 762)
+_target = NodePath("../Player")
+dumb_move_time = 2.0
+dumb_pause_time = 1.0
+dumb_direction = null
+
+[node name="HomingBullet2D9" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
+position = Vector2(490, 820)
+_target = NodePath("../Player")
+dumb_move_time = 2.0
+dumb_pause_time = 1.0
+dumb_direction = null
+
+[node name="HomingBullet2D10" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
+position = Vector2(402, 256)
+_target = NodePath("../Player")
+dumb_move_time = 2.0
+dumb_pause_time = 1.0
+dumb_direction = null
+
+[node name="HomingBullet2D11" parent="BaseLevel" node_paths=PackedStringArray("_target") instance=ExtResource("5_rjjvu")]
+position = Vector2(636, 524)
+_target = NodePath("../Player")
+dumb_move_time = 2.0
+dumb_pause_time = 1.0
+dumb_direction = null
 
 [node name="level_ui" parent="." instance=ExtResource("5_guovp")]
