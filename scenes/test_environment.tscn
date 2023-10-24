@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://di5tkxdlpmv6t" path="res://backgrounds/background_night_sky.tscn" id="1_rutlm"]
 [ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="2_aui42"]
 [ext_resource type="PackedScene" uid="uid://dvyb7bvqorlws" path="res://scenes/levels/base_level.tscn" id="2_qr3cp"]
-[ext_resource type="PackedScene" uid="uid://c8x7qxqlj162q" path="res://scenes/examples/homing_emitter.tscn" id="5_38woo"]
+[ext_resource type="PackedScene" uid="uid://cu1rvmrpybjui" path="res://scenes/examples/homing_emitter_spam.tscn" id="5_40reg"]
 [ext_resource type="PackedScene" uid="uid://sgqi84gnvqay" path="res://scenes/ui/level_ui.tscn" id="5_guovp"]
 
 [node name="Game Test Environment" type="Node"]
@@ -15,7 +15,7 @@
 [node name="Player" parent="BaseLevel" instance=ExtResource("2_aui42")]
 position = Vector2(690, 735)
 
-[node name="Homing Emitter" parent="BaseLevel" instance=ExtResource("5_38woo")]
-position = Vector2(453, 400)
-
 [node name="level_ui" parent="." instance=ExtResource("5_guovp")]
+
+[node name="Homing Emitter Spam" parent="." instance=ExtResource("5_40reg")]
+position = Vector2(472, 444)
