@@ -185,6 +185,7 @@ func _emit(angle: float, sync: float):
 	# Add child to scene, not to self
 	# Double get_parent() allows the emitter to be attached to a physics body or similar
 	get_parent().get_parent().add_child(bullet_inst)
+	# TODO: add a setting that adds it to the node in the "level" group instead
 	
 	# Rotate the bullet toward where its going
 	bullet_inst.look_at(bullet_inst.position+direction)
