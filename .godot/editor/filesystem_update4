@@ -20,3 +20,7 @@ res://scenes/homing_bullet_2d.gd
 res://scenes/bullet_2d.tscn
 res://scenes/base_entity_2d.tscn
 res://scripts/homing_bullet_2d.gd
+res://HomingEmitter2D.gd
+res://scenes/homing_emitter_2d.tscn
+res://scripts/HomingEmitter2D.gd
+res://scenes/emitter_2d.tscn

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx2wlbq1tg7cm"]
+[gd_scene load_steps=4 format=3 uid="uid://dx2wlbq1tg7cm"]
 
 [ext_resource type="PackedScene" uid="uid://iumm6yo4wle2" path="res://scenes/base_entity_2d.tscn" id="1_wxr7h"]
 [ext_resource type="Script" path="res://scripts/emitter_2d.gd" id="2_ks2dd"]
+[ext_resource type="PackedScene" uid="uid://daj5d1tju11ff" path="res://scenes/homing_bullet_2d.tscn" id="3_wpkbq"]
 
 [node name="Emitter2D" groups=["emitter_2d"] instance=ExtResource("1_wxr7h")]
 script = ExtResource("2_ks2dd")
@@ -21,6 +22,7 @@ entity_start_delay = -1.0
 synchronized_awake = false
 max_emissions = -1
 emitted_life_time = 10.0
+BulletScene = ExtResource("3_wpkbq")
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
 wait_time = 99999.0

@@ -61,11 +61,7 @@ var _emitted_count: int = 0 # counts emitted entities
 var _scheduled_count: int = 0 # counts time emitted entities
 var _children_freed: int = 0 # counts despawned entities
 
-# TODO: maybe there's a way to @export an interface. in that case any BaseEntity that implements specific methods could be emitted
-# so something like		Bullet implements iShootable			in Bullet
-# then 					@export var emitted_entity: iShootable	in this script
-# followed by 			const BulletScene = ...?				also in this script
-const BulletScene = preload("res://scenes/bullet_2d.tscn") 
+@export var BulletScene = preload("res://scenes/homing_bullet_2d.tscn") 
 
 # FIXME: this should be functionality of BaseEntity instead
 ## Returns a Sprite name String for a BulletSprite enum choice
