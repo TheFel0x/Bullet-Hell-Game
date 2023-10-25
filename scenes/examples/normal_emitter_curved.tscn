@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://80fxlvi71dix" path="res://scenes/bullet_2d.tscn" id="2_noe1t"]
 
 [node name="Normal Emitter Curved" instance=ExtResource("1_dx5bg")]
-wave_degree_offset = 0.0
 emitted_life_time = -1.0
 BulletScene = ExtResource("2_noe1t")
 auto_vanish = false

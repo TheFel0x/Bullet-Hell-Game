@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://coo25grvx070x"]
+[gd_scene load_steps=6 format=3 uid="uid://coo25grvx070x"]
 
 [ext_resource type="PackedScene" uid="uid://di5tkxdlpmv6t" path="res://backgrounds/background_night_sky.tscn" id="1_rutlm"]
 [ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="2_aui42"]
 [ext_resource type="PackedScene" uid="uid://dvyb7bvqorlws" path="res://scenes/levels/base_level.tscn" id="2_qr3cp"]
-[ext_resource type="PackedScene" uid="uid://cdt43dpdpml44" path="res://scenes/rotator_2d.tscn" id="4_ecwsf"]
 [ext_resource type="PackedScene" uid="uid://ckrwpwegur1fu" path="res://scenes/examples/normal_emitter_curved.tscn" id="5_3tljo"]
-[ext_resource type="PackedScene" uid="uid://cu1rvmrpybjui" path="res://scenes/examples/homing_emitter_spam.tscn" id="5_40reg"]
 [ext_resource type="PackedScene" uid="uid://sgqi84gnvqay" path="res://scenes/ui/level_ui.tscn" id="5_guovp"]
 
 [node name="Game Test Environment" type="Node"]
@@ -17,16 +15,7 @@
 [node name="Player" parent="BaseLevel" instance=ExtResource("2_aui42")]
 position = Vector2(690, 735)
 
-[node name="Rotator2D" parent="BaseLevel" instance=ExtResource("4_ecwsf")]
-position = Vector2(453, 513)
-
-[node name="Normal Emitter Curved" parent="BaseLevel/Rotator2D" instance=ExtResource("5_3tljo")]
-position = Vector2(-231, -188)
-
-[node name="Rotator2D" parent="BaseLevel/Rotator2D/Normal Emitter Curved" instance=ExtResource("4_ecwsf")]
-position = Vector2(357, 88)
-
-[node name="Homing Emitter Spam" parent="BaseLevel/Rotator2D/Normal Emitter Curved/Rotator2D" instance=ExtResource("5_40reg")]
-position = Vector2(-146, 137)
+[node name="Normal Emitter Curved" parent="BaseLevel" instance=ExtResource("5_3tljo")]
+position = Vector2(460, 505)
 
 [node name="level_ui" parent="." instance=ExtResource("5_guovp")]
