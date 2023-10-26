@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://di5tkxdlpmv6t" path="res://backgrounds/background_night_sky.tscn" id="1_rutlm"]
 [ext_resource type="PackedScene" uid="uid://c34rsjbp8if2o" path="res://scenes/player.tscn" id="2_aui42"]
 [ext_resource type="PackedScene" uid="uid://dvyb7bvqorlws" path="res://scenes/levels/base_level.tscn" id="2_qr3cp"]
-[ext_resource type="PackedScene" uid="uid://ckrwpwegur1fu" path="res://scenes/examples/normal_emitter_curved.tscn" id="5_3tljo"]
+[ext_resource type="PackedScene" uid="uid://c8wiedn53s275" path="res://scenes/examples/messy_circular_spread.tscn" id="5_2fe6q"]
 [ext_resource type="PackedScene" uid="uid://sgqi84gnvqay" path="res://scenes/ui/level_ui.tscn" id="5_guovp"]
 
 [node name="Game Test Environment" type="Node"]
@@ -15,7 +15,15 @@
 [node name="Player" parent="BaseLevel" instance=ExtResource("2_aui42")]
 position = Vector2(690, 735)
 
-[node name="Normal Emitter Curved" parent="BaseLevel" instance=ExtResource("5_3tljo")]
-position = Vector2(460, 505)
-
 [node name="level_ui" parent="." instance=ExtResource("5_guovp")]
+
+[node name="Messy Circular Spread" parent="." instance=ExtResource("5_2fe6q")]
+position = Vector2(377, 283)
+rotation = -1.21055
+
+[node name="Messy Circular Spread2" parent="." instance=ExtResource("5_2fe6q")]
+position = Vector2(621, 425)
+
+[node name="Messy Circular Spread3" parent="." instance=ExtResource("5_2fe6q")]
+position = Vector2(227, 635)
+rotation = 0.712407

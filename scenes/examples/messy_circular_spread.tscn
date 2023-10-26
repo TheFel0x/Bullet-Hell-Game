@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8wiedn53s275"]
+
+[ext_resource type="PackedScene" uid="uid://dx2wlbq1tg7cm" path="res://scenes/emitter_2d.tscn" id="1_ts5sf"]
+
+[node name="Messy Circular Spread" type="Node2D"]
+
+[node name="Emitter2D" parent="." instance=ExtResource("1_ts5sf")]
+start_delay = 1.0
+emission_count = 9
+time_between_entities = 0.04
+emission_distance = 75.0
+entity_start_delay = 0.24
+synchronized_awake = true
+max_emissions = 9
+
+[node name="Emitter2D2" parent="." instance=ExtResource("1_ts5sf")]
+rotation = 0.20944
+start_delay = 1.0
+mirrored = true
+emission_count = 9
+time_between_entities = 0.04
+emission_distance = 60.0
+entity_speed = 185.0
+entity_start_delay = 0.23
+synchronized_awake = true
+max_emissions = 9
+
+[node name="Emitter2D3" parent="." instance=ExtResource("1_ts5sf")]
+rotation = 0.418879
+start_delay = 1.0
+emission_count = 9
+time_between_entities = 0.04
+emission_distance = 45.0
+entity_speed = 200.0
+entity_start_delay = 0.22
+synchronized_awake = true
+max_emissions = 9
+
+[node name="Emitter2D4" parent="." instance=ExtResource("1_ts5sf")]
+rotation = 0.628319
+start_delay = 1.0
+mirrored = true
+emission_count = 9
+time_between_entities = 0.04
+emission_distance = 30.0
+entity_speed = 210.0
+entity_start_delay = 0.21
+synchronized_awake = true
+max_emissions = 9

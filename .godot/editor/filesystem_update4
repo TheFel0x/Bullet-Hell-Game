@@ -6,3 +6,6 @@ res://shader/example_shader_waterclouds.gdshader
 res://scenes/examples/homing_emitter_spam.tscn
 res://scenes/emitter_2d.tscn
 res://scenes/examples/normal_emitter_curved.tscn
+res://scenes/spellcards/test_card.tscn
+res://scenes/spellcards/messy_circular_spread.tscn
+res://scenes/examples/messy_circular_spread.tscn

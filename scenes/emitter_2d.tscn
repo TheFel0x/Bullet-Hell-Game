@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://iumm6yo4wle2" path="res://scenes/base_entity_2d.tscn" id="1_wxr7h"]
 [ext_resource type="Script" path="res://scripts/emitter_2d.gd" id="2_ks2dd"]
-[ext_resource type="PackedScene" uid="uid://daj5d1tju11ff" path="res://scenes/homing_bullet_2d.tscn" id="3_wpkbq"]
+[ext_resource type="PackedScene" uid="uid://80fxlvi71dix" path="res://scenes/bullet_2d.tscn" id="3_tshuj"]
 
 [node name="Emitter2D" groups=["emitter_2d"] instance=ExtResource("1_wxr7h")]
 script = ExtResource("2_ks2dd")
@@ -25,7 +25,7 @@ emitted_life_time = 10.0
 homing_dumb_move_time = 2.0
 homing_dumb_pause_time = 1.0
 homing_speed = 200
-BulletScene = ExtResource("3_wpkbq")
+BulletScene = ExtResource("3_tshuj")
 
 [node name="EmissionTimer" type="Timer" parent="." index="4"]
 wait_time = 99999.0
