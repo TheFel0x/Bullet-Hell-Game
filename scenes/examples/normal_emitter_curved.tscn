@@ -1,9 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckrwpwegur1fu"]
+[gd_scene load_steps=2 format=3 uid="uid://ckrwpwegur1fu"]
 
 [ext_resource type="PackedScene" uid="uid://dx2wlbq1tg7cm" path="res://scenes/emitter_2d.tscn" id="1_dx5bg"]
-[ext_resource type="PackedScene" uid="uid://80fxlvi71dix" path="res://scenes/bullet_2d.tscn" id="2_noe1t"]
 
 [node name="Normal Emitter Curved" instance=ExtResource("1_dx5bg")]
 emitted_life_time = -1.0
-BulletScene = ExtResource("2_noe1t")
 auto_vanish = false
