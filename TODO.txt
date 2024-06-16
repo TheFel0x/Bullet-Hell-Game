@@ -3,3 +3,4 @@
 		- Mojibake theme
 		- Faling star theme
 		- Shadow Theatre (all sprites/bullets/player/enemies changed to all-black, white background)
+		- Firework theme (rise + explode)
